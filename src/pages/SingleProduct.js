@@ -16,7 +16,7 @@ const SingleProduct = () => {
     img: 'https://images.cars.com/cldstatic/wp-content/uploads/cadillac-escalade-2021-20.JPG',
   };
 
-  const [orderedProduct, setorderedProduct] = useState(true);
+  const [orderedProduct] = useState(true);
   const copyToClipboard = (text) => {
     console.log('text', text);
     var textField = document.createElement('textarea');

@@ -489,11 +489,31 @@ body {
   .store-wrapper .gr-12 .product-card span {
     font-size: 0.7rem !important;
   }
+  .store-wrapper .gr-4 {
+    padding: 0rem !important;
+    width: 48%;
+  }
+  .store-wrapper .gr-4 a.product-card {
+    padding-top: 1.5rem !important;
+  }
+  .store-wrapper .gr-4 .product-card span {
+    margin-top: 1rem;
+    font-size: 0.7rem !important;
+  }
+  .store-wrapper .gr-4 .product-card .product-image img {
+    width: auto;
+    height: 240px;
+  }
+  .store-wrapper .gr-4 .product-card p {
+    margin-top: 1rem;
+    font-size: 0.7rem !important;
+  }
 
   .grid img {
     display: none !important;
   }
-  .grid img:last-child {
+  .grid img[src='images/gr.svg'],
+  .grid img[src='images/gr3.svg'] {
     display: block !important;
   }
 

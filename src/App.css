@@ -485,40 +485,11 @@ body {
   .store-wrapper .gr-12 .product-card span {
     font-size: 0.7rem !important;
   }
-  .store-wrapper .gr-4 {
-    width: 48%;
-  }
-  .store-wrapper .gr-4 .product-card p,
-  .store-wrapper .gr-4 .product-card h5 {
-    font-size: 0.7rem !important;
-    margin-top: 0.3rem;
-  }
-  .store-wrapper .gr-4 .product-card span {
-    font-size: 0.4rem !important;
-    margin-top: 0.3rem;
-  }
-
-  .store-wrapper .gr-4 .product-card {
-    display: flex;
-    gap: 10px;
-  }
-  .store-wrapper .gr-4 .product-card img {
-    height: 100px;
-    margin: 0rem;
-    padding: 0rem;
-  }
-  .store-wrapper .gr-4 a.product-card {
-    padding: 0rem !important;
-    height: 100%;
-  }
-  .store-wrapper .gr-4 .product-card span {
-    font-size: 0.7rem !important;
-  }
 
   .grid img {
-    display: none;
+    display: none !important;
   }
-  .grid img[src='images/gr.svg'] {
+  .grid img:last-child {
     display: block !important;
   }
 

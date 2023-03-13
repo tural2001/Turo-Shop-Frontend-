@@ -145,6 +145,15 @@ const Services = () => {
           </div>
         </div>
         <div className="row">
+          <div className="col-4">
+            <div>
+              <img
+                src="images/oil-change.jpeg"
+                className="img-fluid rounded-pill"
+                alt="diagnostic"
+              />
+            </div>
+          </div>
           <div className="col-8 py-2">
             <div className="check">
               <ul className="d-flex flex-column justify-content-center gap-15">
@@ -197,7 +206,7 @@ const Services = () => {
                   </p>
                 </li>
               </ul>
-              <div className="click-2 mb-1">
+              <div className="click mb-1">
                 <Link to="/login" className="d-flex gap-15">
                   <img
                     src="images/click.svg"
@@ -207,15 +216,6 @@ const Services = () => {
                   <p className="mb-0">Bizə Qoşul</p>
                 </Link>
               </div>
-            </div>
-          </div>
-          <div className="col-4">
-            <div>
-              <img
-                src="images/oil-change.jpeg"
-                className="img-fluid rounded-pill"
-                alt="diagnostic"
-              />
             </div>
           </div>
         </div>

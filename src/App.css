@@ -344,27 +344,30 @@ body {
     margin-bottom: 1rem !important;
     margin-top: 0.5rem !important;
   }
+  .services-wrapper-2 {
+    padding: 0rem !important;
+    padding-top: 2rem !important;
+  }
   .services-wrapper-2 .section-heading {
     margin: 0 !important;
     font-size: 1rem;
   }
   .services-wrapper-2 .check p {
-    font-size: 0.3rem;
+    font-size: 0.5rem;
   }
   .services-wrapper-2 .check img {
     width: 5vh !important;
   }
   .services-wrapper-2 .col-8 {
     flex: 100%;
-    max-width: 50%;
+    max-width: 100%;
     margin-bottom: 1rem;
   }
   .services-wrapper-2 .click {
     margin: 0rem !important;
     margin-left: 5rem !important;
   }
-  .services-wrapper-2 .click p,
-  .services-wrapper-2 .click-2 p {
+  .services-wrapper-2 .click p {
     font-size: 0.3rem;
     padding: 0.3rem !important;
   }
@@ -377,9 +380,18 @@ body {
   .services-wrapper-2 .check ul {
     gap: 0.3rem !important;
   }
-  .services-wrapper-2 .click-2 {
+  .services-wrapper-2 .click {
     margin: 0 !important;
-    margin-left: 1rem !important;
+    margin-left: 13.5rem !important;
+  }
+  .services-wrapper-2 .row {
+    margin: 0rem !important;
+  }
+  .services-wrapper-2 .col-4 {
+    flex: 100%;
+    max-width: 50%;
+    margin-bottom: 1rem;
+    margin-left: 5rem;
   }
 
   /* Services Page End */
@@ -411,10 +423,106 @@ body {
     font-size: 0.4rem;
   }
   .contact-wrapper img {
-    width: 6vh !important;
+    width: 4vh !important;
+  }
+  /* Contact Page End */
+
+  /* Our Store Page */
+  .store-wrapper .col-3 {
+    flex: 50%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  .store-wrapper .filter-card {
+    padding: 0.1rem !important;
+  }
+  .store-wrapper .filter-title {
+    font-size: 0.8rem;
+  }
+  .store-wrapper .filter-card li {
+    font-size: 0.7rem;
+    padding: 0rem !important;
+  }
+  .store-wrapper .sub-title {
+    font-size: 0.7rem;
+  }
+  .store-wrapper .form-check-label {
+    font-size: 0.7rem !important;
+  }
+  .store-wrapper .form-floating label {
+    font-size: 0.5rem !important;
+  }
+  .store-wrapper .form-floating input {
+    height: 0.5rem;
+    padding: 1rem !important;
+  }
+  .store-wrapper .filter-card .product-tags span {
+    font-size: 0.5rem;
+  }
+  .store-wrapper .col-9 {
+    flex: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  .store-wrapper .filter-sort-grid p,
+  .store-wrapper .filter-sort-grid select.form-select {
+    font-size: 0.5rem;
   }
 
-  /* Contact Page End */
+  .store-wrapper .gr-12 .product-card {
+    display: flex;
+    gap: 10px;
+  }
+  .store-wrapper .gr-12 .product-card img {
+    height: 100px;
+    margin: 0rem;
+    padding: 0rem;
+  }
+  .store-wrapper .gr-12 a.product-card {
+    padding: 0rem !important;
+    height: 100%;
+  }
+  .store-wrapper .gr-12 .product-card span {
+    font-size: 0.7rem !important;
+  }
+  .store-wrapper .gr-4 {
+    width: 48%;
+  }
+  .store-wrapper .gr-4 .product-card p,
+  .store-wrapper .gr-4 .product-card h5 {
+    font-size: 0.7rem !important;
+    margin-top: 0.3rem;
+  }
+  .store-wrapper .gr-4 .product-card span {
+    font-size: 0.4rem !important;
+    margin-top: 0.3rem;
+  }
+
+  .store-wrapper .gr-4 .product-card {
+    display: flex;
+    gap: 10px;
+  }
+  .store-wrapper .gr-4 .product-card img {
+    height: 100px;
+    margin: 0rem;
+    padding: 0rem;
+  }
+  .store-wrapper .gr-4 a.product-card {
+    padding: 0rem !important;
+    height: 100%;
+  }
+  .store-wrapper .gr-4 .product-card span {
+    font-size: 0.7rem !important;
+  }
+
+  .grid img {
+    display: none;
+  }
+  .grid img[src='images/gr.svg'] {
+    display: block !important;
+  }
+
+  /* Our Store Page end */
 }
 
 .header-upper .header-upper-links img {
@@ -996,9 +1104,7 @@ footer .input-group img {
 .click {
   margin-left: 710px;
 }
-.click-2 {
-  margin-left: 30px;
-}
+
 .click p,
 .click-2 p {
   color: white;

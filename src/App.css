@@ -199,20 +199,41 @@ body {
   .featured-wrapper .product-card {
     padding-bottom: 0px !important;
   }
-  .home-wrapper-2 .categories h5,
+  .home-wrapper-2 {
+    padding-bottom: 0px !important;
+  }
+  .home-wrapper-2 .categories {
+    padding-right: 0.2rem !important;
+  }
+  .home-wrapper-2 .categories h5 {
+    font-size: 0.62rem;
+  }
   .home-wrapper-2 .categories p {
-    font-size: 0.7rem;
+    font-size: 0.55rem;
   }
   .home-wrapper-2 .categories div {
     gap: 0rem !important;
     padding: 0rem !important;
-    padding-right: 0.5rem !important;
   }
   .home-wrapper-2 .categories div img {
     width: 15vh;
+    padding-right: 0.1rem !important;
   }
   .home-wrapper-2 .categories div > div {
     width: 100%;
+  }
+  .home-wrapper-2 .services div {
+    gap: 0.1rem !important;
+  }
+  .home-wrapper-2 .services img {
+    width: 6vh;
+  }
+  .home-wrapper-2 .services h6 {
+    font-size: 0.6rem;
+  }
+  .home-wrapper-2 .services p {
+    font-size: 0.5rem;
+    margin-bottom: 0.1rem;
   }
 }
 

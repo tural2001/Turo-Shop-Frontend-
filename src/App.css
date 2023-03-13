@@ -19,6 +19,7 @@
   --color-ededed: #ededed;
   --color-f2f2f2: #f2f2f2;
 }
+
 @keyframes light {
   from {
     background-position-x: -400px;
@@ -53,6 +54,172 @@
 body {
   font-family: 'Rubik', sans-serif;
 }
+
+@media only screen and (max-width: 768px) {
+  .header-top-strip a,
+  .header-top-strip p {
+    font-size: 7px;
+  }
+  .header-upper .header-upper-links img {
+    width: 30px;
+    height: 30px;
+  }
+  .header-upper p {
+    font-size: 7px;
+  }
+  .header-upper .input-group input.form-control {
+    width: 50%;
+  }
+  .header-upper a {
+    font-size: 10px;
+    margin-top: 15px;
+  }
+  .input-group .form-control {
+    font-size: 8px;
+    padding: auto;
+  }
+  /* Footer */
+  .footer-top-data {
+    gap: 5px !important;
+  }
+  footer .col-4 {
+    padding-left: 5px !important;
+    padding-right: 0 !important;
+  }
+  .footer-top-data img {
+    width: 20px;
+  }
+  .footer-top-data h4 {
+    font-size: 12px;
+    margin-right: px;
+  }
+  .footer-top-data span {
+    font-size: 6px !important;
+  }
+  footer .col-2 {
+    padding-left: 9px;
+  }
+  .col-2 h4 {
+    font-size: 7px;
+  }
+  .col-6 h4 {
+    font-size: 12px;
+  }
+  .col-6 p {
+    font-size: 8px;
+  }
+  .footer-link {
+    font-size: 6px;
+  }
+  footer .input-group input {
+    width: 50%;
+    height: 28%;
+  }
+  footer .input-group button img {
+    width: 100%;
+    height: 23px;
+  }
+  footer .col-12 p {
+    font-size: 8px;
+  }
+  .social-icons {
+    gap: 8px !important;
+  }
+
+  /* Footer end */
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .header-top-strip {
+    font-size: 14px;
+  }
+  .header-upper .header-upper-links img {
+    width: 30px;
+    height: 30px;
+  }
+  .header-upper p {
+    font-size: 12px;
+  }
+  .header-upper .input-group {
+    width: 100%;
+    height: auto;
+  }
+  .header-upper a {
+    font-size: 30px;
+  }
+  .input-group .form-control {
+    font-size: 10px;
+    padding: auto;
+  }
+  .footer-top-data {
+    font-size: 6px;
+  }
+  .footer-top-data span {
+    font-size: 5px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .header-top-strip {
+    font-size: 16px;
+  }
+  .header-upper .header-upper-links img {
+    width: 30px;
+    height: 30px;
+  }
+  .header-upper p {
+    font-size: 16px;
+  }
+  .header-upper .input-group {
+    width: 100%;
+    height: auto;
+  }
+  .header-upper a {
+    font-size: 30px;
+  }
+  .input-group .form-control {
+    font-size: 14px;
+    padding: auto;
+  }
+  .footer-top-data {
+    font-size: 6px;
+  }
+  .footer-top-data span {
+    font-size: 5px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .header-top-strip {
+    font-size: 18px;
+  }
+  .header-upper .header-upper-links img {
+    width: 30px;
+    height: 30px;
+  }
+  .header-upper p {
+    font-size: 16px;
+  }
+  .header-upper .input-group {
+    width: 100%;
+    height: auto;
+  }
+  .header-upper a {
+    font-size: 35px;
+    margin-bottom: 0;
+  }
+  .input-group .form-control {
+    font-size: 18px;
+    padding: auto;
+  }
+  .footer-top-data {
+    font-size: 6px;
+  }
+  .footer-top-data span {
+    font-size: 5px;
+  }
+}
+
 a {
   text-decoration: none;
   display: inline-block;
@@ -107,10 +274,6 @@ a {
   background-color: var(--color-febd69);
 }
 
-.header-upper .header-upper-links img {
-  width: 30px;
-  height: 30px;
-}
 .header-bottom .menu-links a,
 .header-bottom .dropdown button {
   color: white;
@@ -154,6 +317,9 @@ footer:not(:first-child) {
 }
 footer .form-control {
   background-color: #2e2e2e;
+}
+footer .input-group img {
+  height: 60px;
 }
 /* Footer Part Ends */
 

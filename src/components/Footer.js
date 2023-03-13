@@ -14,7 +14,7 @@ const Footer = () => {
       <footer className="py-3">
         <div className="container-xxl">
           <div className="row justify-content-between">
-            <div className="col-3">
+            <div className="col-4">
               <div className="footer-top-data d-flex gap-15 align-items-center">
                 <img src="images/location.svg" width="45px" alt="location" />
                 <h4 className="mb-0 text-white fw-bolder">
@@ -23,8 +23,8 @@ const Footer = () => {
                 </h4>
               </div>
             </div>
-            <div className="col-3">
-              <div className="footer-top-data d-flex gap-15 align-items-between">
+            <div className="col-4">
+              <div className="footer-top-data d-flex gap-15 align-items-center">
                 <img src="images/call.svg" width="55px" alt="location" />
                 <h4 className="mb-0 text-white fw-bolder">
                   Əlaqə
@@ -33,7 +33,7 @@ const Footer = () => {
                 </h4>
               </div>
             </div>
-            <div className="col-3">
+            <div className="col-4">
               <div className="footer-top-data d-flex gap-15 align-items-center">
                 <img src="images/mail.svg" width="45px" alt="mail" />
                 <h4 className="mb-0 text-white fw-bolder">
@@ -86,7 +86,7 @@ const Footer = () => {
             </div>
             <div className="col-6">
               <h4 className="text-white mb-4">Abunə olun</h4>
-              <p className="text-white-50 fs-6">
+              <p className="text-white-50">
                 Yeniliklər üçün abunə olmağı unutmayın, xahiş edirik aşağıdakı
                 formanı doldurun.
               </p>
@@ -99,7 +99,7 @@ const Footer = () => {
                   aria-describedby="basic-addon2"
                 />
                 <button>
-                  <img src="images/send.svg" height="60px" alt="" />
+                  <img src="images/send.svg" alt="" />
                 </button>
               </div>
               <div className="social-icons d-flex align-items-center gap-30 mt-4">

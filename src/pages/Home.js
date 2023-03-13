@@ -168,7 +168,6 @@ const Home = () => {
         </div>
       </Container>
       <Container class1="marque-wrapper py-5">
-        {' '}
         <div className="row">
           <div className="col-12">
             <div className="marquee-inner-wrapper card-wrapper">

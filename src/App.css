@@ -82,7 +82,7 @@ body {
     gap: 0.1rem !important;
   }
   .header-bottom .dropdown img {
-    width: 5vh !important;
+    width: 2vh !important;
   }
   .header-bottom .dropdown span {
     font-size: 0.4rem;
@@ -428,6 +428,10 @@ body {
   /* Contact Page End */
 
   /* Our Store Page */
+  .store-wrapper {
+    padding: 0 !important;
+    padding-top: 1rem !important;
+  }
   .store-wrapper .col-3 {
     flex: 50%;
     max-width: 100%;

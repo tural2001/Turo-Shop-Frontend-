@@ -160,6 +160,9 @@ body {
   .marque-wrapper {
     padding: 0rem !important;
   }
+  .marque-wrapper img {
+    width: 10vh;
+  }
   .special-product-content h5 {
     font-size: large;
   }
@@ -170,9 +173,16 @@ body {
   .special-product-card p {
     font-size: small;
   }
+  .featured-wrapper {
+    padding: 0px !important;
+  }
   .featured-wrapper .product-image img {
-    width: 80% !important;
-    height: 50% !important;
+    width: 200px !important;
+    height: 200px !important;
+  }
+  .featured-wrapper .product-image {
+    display: flex;
+    justify-content: center;
   }
 
   .featured-wrapper .col-3 {
@@ -181,13 +191,28 @@ body {
     margin-bottom: 1rem;
   }
   .featured-wrapper .product-details {
-    margin-top: 10%;
+    margin-top: 2rem;
   }
   .featured-wrapper .product-details h6.brand {
     font-size: large;
   }
   .featured-wrapper .product-card {
     padding-bottom: 0px !important;
+  }
+  .home-wrapper-2 .categories h5,
+  .home-wrapper-2 .categories p {
+    font-size: 0.7rem;
+  }
+  .home-wrapper-2 .categories div {
+    gap: 0rem !important;
+    padding: 0rem !important;
+    padding-right: 0.5rem !important;
+  }
+  .home-wrapper-2 .categories div img {
+    width: 15vh;
+  }
+  .home-wrapper-2 .categories div > div {
+    width: 100%;
   }
 }
 

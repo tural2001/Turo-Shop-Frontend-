@@ -13,8 +13,6 @@ const BlogCard = () => {
           <h5 className="title">A beautiful sunday morning renaissance</h5>
           <p className="desc">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.Nihil nisi!
-            Esse unde beatae ipsa odit commodi consequuntur dolores atque libero
-            exercitationem?
           </p>
           <Link to="/" className="button">
             Read More

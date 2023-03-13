@@ -34,9 +34,9 @@
   justify-content: center;
   font-weight: 700;
   font-size: 40px;
-  color: #ffffff;
+  color: #fcf7f7;
   margin-bottom: 30px;
-  background: linear-gradient(to right, #000000 0%, #ffffff 50%, #000000 100%);
+  background: linear-gradient(to right, #131313 0%, #f8f8f8 50%, #000000 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -56,6 +56,7 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  /* Home Page */
   .header-top-strip a,
   .header-top-strip p {
     font-size: 0.4rem;
@@ -183,12 +184,26 @@ body {
   }
   .marque-wrapper {
     padding: 0rem !important;
+    margin-bottom: 1rem !important;
   }
   .marque-wrapper img {
     width: 10vh;
   }
   .special-product-content h5 {
     font-size: large;
+  }
+  .special-product-card .progress {
+    height: 0.5rem;
+  }
+  .special-product-card .discount-till span.badge {
+    padding: 0.5rem !important;
+  }
+  .special-product-card .discount-till div {
+    gap: 0.5rem;
+  }
+  .special-product-card button {
+    font-size: 0.5rem;
+    margin-left: 6rem;
   }
   .special-product-content h6 {
     font-size: x-small;
@@ -312,6 +327,94 @@ body {
   .home-wrapper-1 .main-banner-content .button {
     font-size: 0.6rem;
   }
+  /* Home Page End */
+
+  /* Services Page */
+  .services-wrapper-1 {
+    padding: 0rem !important;
+    padding-top: 2rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .services-wrapper-1 .logo b {
+    font-size: 2rem;
+  }
+  .services-wrapper-1 .col-12 p {
+    font-size: 0.38rem;
+    margin: 0rem !important;
+    margin-bottom: 1rem !important;
+    margin-top: 0.5rem !important;
+  }
+  .services-wrapper-2 .section-heading {
+    margin: 0 !important;
+    font-size: 1rem;
+  }
+  .services-wrapper-2 .check p {
+    font-size: 0.3rem;
+  }
+  .services-wrapper-2 .check img {
+    width: 5vh !important;
+  }
+  .services-wrapper-2 .col-8 {
+    flex: 100%;
+    max-width: 50%;
+    margin-bottom: 1rem;
+  }
+  .services-wrapper-2 .click {
+    margin: 0rem !important;
+    margin-left: 5rem !important;
+  }
+  .services-wrapper-2 .click p,
+  .services-wrapper-2 .click-2 p {
+    font-size: 0.3rem;
+    padding: 0.3rem !important;
+  }
+  .services-wrapper-2 .click img {
+    width: 4vh !important;
+  }
+  .services-wrapper-2 a {
+    gap: 0.3rem !important;
+  }
+  .services-wrapper-2 .check ul {
+    gap: 0.3rem !important;
+  }
+  .services-wrapper-2 .click-2 {
+    margin: 0 !important;
+    margin-left: 1rem !important;
+  }
+
+  /* Services Page End */
+
+  /* Contact Page */
+  .contact-wrapper {
+    padding: 0rem !important;
+    padding-top: 1rem !important;
+  }
+  .contact-wrapper iframe {
+    height: 10rem;
+  }
+  .contact-inner-wrapper h3 {
+    font-size: 0.7rem;
+  }
+  .contact-inner-wrapper input.form-control,
+  .contact-inner-wrapper textarea.form-control {
+    font-size: 0.5rem;
+  }
+  .contact-inner-wrapper button {
+    font-size: 0.4rem;
+    padding: 0rem !important;
+    padding: 0.5rem !important;
+    margin-left: 5rem;
+  }
+  .contact-wrapper address,
+  .contact-wrapper a,
+  .contact-wrapper p {
+    font-size: 0.4rem;
+  }
+  .contact-wrapper img {
+    width: 6vh !important;
+  }
+
+  /* Contact Page End */
 }
 
 .header-upper .header-upper-links img {

@@ -518,6 +518,35 @@ body {
   }
 
   /* Our Store Page end */
+
+  /* Login Page */
+  .login-wrapper .auth-card {
+    width: 18rem;
+  }
+  .signup-wrapper .auth-card {
+    width: 18rem;
+  }
+  .forgot-wrapper .auth-card {
+    width: 18rem !important;
+  }
+  .reset-wrapper .auth-card {
+    width: 18rem !important;
+  }
+  .reset-wrapper .text-center,
+  .signup-wrapper .text-center,
+  .login-wrapper .text-center {
+    font-size: 1.5rem;
+  }
+  .reset-wrapper form,
+  .login-wrapper form,
+  .signup-wrapper form {
+    font-size: 0.9rem;
+  }
+  .login-wrapper input.form-control {
+    font-size: 0.8rem;
+  }
+
+  /* Login Page end */
 }
 
 .header-upper .header-upper-links img {

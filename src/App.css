@@ -493,8 +493,8 @@ body {
     padding: 0rem !important;
     width: 48%;
   }
-  .store-wrapper .gr-4 a.product-card {
-    padding-top: 1.5rem !important;
+  .store-wrapper .gr-4 .product-card {
+    height: 300px;
   }
   .store-wrapper .gr-4 .product-card span {
     margin-top: 1rem;
@@ -502,7 +502,7 @@ body {
   }
   .store-wrapper .gr-4 .product-card .product-image img {
     width: auto;
-    height: 240px;
+    height: 160px;
   }
   .store-wrapper .gr-4 .product-card p {
     margin-top: 1rem;

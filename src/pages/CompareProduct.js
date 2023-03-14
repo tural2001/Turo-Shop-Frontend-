@@ -1,13 +1,11 @@
 import React from 'react';
 import Meta from '../components/Meta';
-import BreadCrump from '../components/BreadCrump';
 import Container from '../components/Container';
 
 const CompareProduct = () => {
   return (
     <>
       <Meta title={'Compare Products'} />
-      <BreadCrump title="Compare Products" />
       <Container class1="compare-product-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-3">

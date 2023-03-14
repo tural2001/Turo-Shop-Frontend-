@@ -41,7 +41,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   animation: light 5s infinite;
 }
 
@@ -57,6 +57,7 @@ body {
 
 @media screen and (max-width: 768px) {
   /* Home Page */
+
   .header-top-strip a,
   .header-top-strip p {
     font-size: 0.4rem;
@@ -159,6 +160,9 @@ body {
   footer .col-12 p {
     font-size: 8px;
   }
+  footer:nth-last-child(2) {
+    padding-bottom: 0rem !important;
+  }
   .social-icons {
     gap: 8px !important;
   }
@@ -228,10 +232,18 @@ body {
   }
   .special-product-card span,
   .special-product-card p {
-    font-size: small;
+    font-size: 0.6rem;
+  }
+  .special-product-card .prod-count {
+    margin: 0rem !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
   }
   .featured-wrapper {
     padding: 0px !important;
+  }
+  .featured-wrapper .product-card {
+    height: 370px !important;
   }
   .featured-wrapper .product-image img {
     width: 200px !important;
@@ -248,7 +260,7 @@ body {
     margin-bottom: 1rem;
   }
   .featured-wrapper .product-details {
-    margin-top: 2rem;
+    margin-top: 2rem !important;
   }
   .featured-wrapper .product-details h6.brand {
     font-size: large;
@@ -263,10 +275,10 @@ body {
     padding-right: 0.2rem !important;
   }
   .home-wrapper-2 .categories h5 {
-    font-size: 0.62rem;
+    font-size: 0.62rem !important;
   }
   .home-wrapper-2 .categories p {
-    font-size: 0.55rem;
+    font-size: 0.55rem !important;
   }
   .home-wrapper-2 .categories div {
     gap: 0rem !important;

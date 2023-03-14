@@ -123,7 +123,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <footer className="py-4">
+      <footer className="py-2">
         <div className="container xxl">
           <div className="row">
             <div className="col-12">

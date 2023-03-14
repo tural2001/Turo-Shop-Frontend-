@@ -82,7 +82,7 @@ body {
     gap: 0.1rem !important;
   }
   .header-bottom .dropdown img {
-    width: 2vh !important;
+    width: 5vh !important;
   }
   .header-bottom .dropdown span {
     font-size: 0.4rem;
@@ -631,14 +631,82 @@ body {
   .checkout-wrapper .border-bottom p {
     font-size: 0.7rem !important;
   }
-  .checkout-wrapper .border-bottom span {
-  }
+
   .checkout-wrapper .border-bottom img,
   span {
     margin-top: 1rem !important;
   }
 
   /* Checkout page end */
+
+  /* Single Product page */
+  .main-product-wrapper .col-6 {
+    flex: 100%;
+    max-width: 100%;
+  }
+  .main-product-wrapper .other-product-images {
+    padding: 0rem !important;
+    position: relative;
+    justify-content: center;
+  }
+  .main-product-wrapper .border-bottom span {
+    font-size: 0.6rem !important;
+  }
+  .main-product-wrapper .border-bottom input.form-control {
+    font-size: 0.5rem !important;
+    height: 0.2rem;
+    margin-top: 1rem;
+  }
+  .main-product-wrapper .border-bottom h3 {
+    font-size: 0.7rem !important;
+  }
+  .main-product-wrapper .border-bottom button {
+    font-size: 0.5rem;
+  }
+  .description-wrapper h4,
+  h3 {
+    font-size: 1rem !important;
+  }
+  .reviews-wrapper .review-head h4 {
+    font-size: 1rem;
+  }
+  .reviews-wrapper span,
+  a {
+    font-size: 0.7rem !important;
+  }
+  .reviews-wrapper .review-head p {
+    font-size: 0.5rem;
+    margin-top: 1rem;
+  }
+  .reviews-wrapper button {
+    font-size: 0.6rem;
+  }
+  .popular-wrapper .product-card .product-image img {
+    width: 200px;
+    height: auto;
+    margin: 0rem !important;
+  }
+  .popular-wrapper .product-card .product-image {
+    margin-right: 2rem;
+  }
+  .popular-wrapper .product-card {
+    height: 100%;
+  }
+  .popular-wrapper .product-details h6,
+  h5,
+  span,
+  p.price {
+    font-size: 0.8rem !important;
+    margin: 0rem !important;
+  }
+  .popular-wrapper .product-card span {
+    margin-top: 1rem !important;
+  }
+  .popular-wrapper .product-card h6 {
+    margin-top: 2rem !important;
+  }
+
+  /* Single Product page end */
 }
 
 .header-upper .header-upper-links img {

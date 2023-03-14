@@ -64,6 +64,12 @@ body {
   .header-upper .header-upper-links img {
     width: 10vh !important;
   }
+  .header-bottom .menu-links a {
+    font-size: 0.4rem !important;
+  }
+  .header-bottom span {
+    font-size: 0.4rem !important;
+  }
   .header-upper p {
     font-size: 0.4rem;
   }

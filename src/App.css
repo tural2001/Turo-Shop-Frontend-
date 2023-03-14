@@ -603,6 +603,42 @@ body {
   }
 
   /* Cart page end */
+
+  /* Checkout page */
+  .checkout-wrapper li,
+  a {
+    font-size: 0.8rem !important;
+  }
+  .checkout-wrapper {
+    padding: 0rem !important;
+    padding-bottom: 1rem !important;
+    padding-top: 1rem !important;
+  }
+  .checkout-wrapper input.form-control,
+  select.form-control {
+    font-size: 0.7rem;
+  }
+  .checkout-wrapper a {
+    padding: 0 0.7rem !important;
+  }
+  .checkout-wrapper .border-bottom {
+    padding: 0rem !important;
+    padding-top: 1rem !important;
+  }
+  .checkout-wrapper .border-bottom h5 {
+    font-size: 0.5rem !important;
+  }
+  .checkout-wrapper .border-bottom p {
+    font-size: 0.7rem !important;
+  }
+  .checkout-wrapper .border-bottom span {
+  }
+  .checkout-wrapper .border-bottom img,
+  span {
+    margin-top: 1rem !important;
+  }
+
+  /* Checkout page end */
 }
 
 .header-upper .header-upper-links img {

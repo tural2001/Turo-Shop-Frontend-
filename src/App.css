@@ -133,6 +133,9 @@ body {
   footer .col-6 p {
     font-size: 8px;
   }
+  footer a {
+    font-size: 0.42rem !important;
+  }
 
   .footer-link {
     font-size: 6px;

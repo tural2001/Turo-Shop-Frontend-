@@ -124,16 +124,18 @@ const Checkout = () => {
           <div className="col-5">
             <div className="border-bottom py-4">
               <div className="d-flex gap-10 align-items-center">
-                <div className="w-75 d-flex gap-10">
-                  <div className="w-25 position-relative">
+                <div className="w-100 d-flex gap-10">
+                  <div className="w-100 position-relative">
                     <span
-                      style={{ top: '-10px', right: '2px' }}
+                      style={{ top: '0rem', left: '5.5rem' }}
                       className="badge bg-secondary text-white rounded-circle p-2 position-absolute"
                     >
                       1
                     </span>
                     <img src={oil} className="img-fluid" alt="" />
                   </div>
+                </div>
+                <div className="border-bottom py-4">
                   <div>
                     <h5 className="total">Castrol yagi</h5>
                     <p className="total-price">/ #B2873</p>

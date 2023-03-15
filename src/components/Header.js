@@ -55,7 +55,10 @@ const Header = () => {
                   >
                     <img src="images/compare.svg" alt="compare" />
                     <p className="mb-0">
-                      Məhsul <br /> Müqayisəsi
+                      Məhsul{' '}
+                      <span>
+                        <br /> Müqayisəsi
+                      </span>
                     </p>
                   </Link>
                 </div>

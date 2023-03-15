@@ -57,6 +57,14 @@ body {
 
 @media screen and (max-width: 768px) {
   /* Home Page */
+  .header-upper-links img {
+    display: none;
+  }
+  .header-upper-links span {
+    font-size: 0.3rem !important;
+    padding: 0rem !important;
+    margin: 0rem !important;
+  }
 
   .header-top-strip a,
   .header-top-strip p {
@@ -75,14 +83,30 @@ body {
     font-size: 0.4rem;
   }
   .header-upper .input-group input.form-control {
-    width: 50%;
+    width: 30% !important;
+    height: 30% !important;
+    margin-top: 0.5rem !important;
   }
+  .header-upper .col-5 {
+    padding: 0rem !important;
+    padding-left: 0.2rem !important;
+    padding-right: 0.2rem !important;
+  }
+  .header-upper .input-group {
+    align-items: center !important;
+  }
+  .header-upper .input-group .input-group-text {
+    margin: 0rem !important;
+    padding: 0.17rem !important;
+    margin-top: 0.5rem !important;
+  }
+
   .header-upper a {
-    font-size: 10px;
-    margin-top: 15px;
+    font-size: 0.6rem !important;
+    margin-top: 1rem !important;
   }
   .input-group .form-control {
-    font-size: 8px;
+    font-size: 0.5rem !important;
     padding: auto;
   }
   .header-bottom .menu-bottom {
@@ -365,8 +389,12 @@ body {
     padding-top: 2rem !important;
     margin-bottom: 1rem !important;
   }
-  .services-wrapper-1 .logo b {
-    font-size: 2rem;
+  .services-wrapper-1 .logo b,
+  span {
+    font-size: 1.5rem !important ;
+  }
+  .services-wrapper-1 .log b span {
+    font-size: 1rem !important;
   }
   .services-wrapper-1 .col-12 p {
     font-size: 0.38rem;
@@ -724,10 +752,12 @@ body {
   }
   .popular-wrapper .product-details h6,
   h5,
-  span,
   p.price {
     font-size: 0.8rem !important;
     margin: 0rem !important;
+  }
+  .product-details span {
+    font-size: 0.8rem !important;
   }
   .popular-wrapper .product-card span {
     margin-top: 1rem !important;

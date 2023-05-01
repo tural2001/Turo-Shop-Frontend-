@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Marquee from 'react-fast-marquee';
 import BlogCard from '../components/BlogCard';
 import ProductCard from '../components/ProductCard';
@@ -21,16 +20,13 @@ const Home = () => {
               />
               <div className="main-banner-content position-absolute">
                 <h4>Yüksək Keyfiyyətli</h4>
-                <h5>
-                  LongLife <span> 504/507</span>{' '}
-                </h5>
+                <h5>LongLife 504/507</h5>
                 <p>50 azn'dən başlayaraq</p>
-                <Link className="button">Indi Alın</Link>
               </div>
             </div>
           </div>
-          <div className="col-6">
-            <div className="d-flex flex-wrap gap-10 justify-content-between align-items-center mt-4">
+          <div className="col-6 ">
+            <div className="d-flex flex-wrap gap-10 justify-content-between align-items-center mt-4 smal">
               <div className="small-banner position-relative">
                 <img
                   src="images/catbanner-1.jpeg"
@@ -39,9 +35,7 @@ const Home = () => {
                 />
                 <div className="small-banner-content position-absolute">
                   <h4>Yüksək Keyfiyyətli</h4>
-                  <h5>
-                    LongLife <span> 504/507</span>{' '}
-                  </h5>
+                  <h5>LongLife 504/507</h5>
                   <p>50 azn'dən başlayaraq</p>
                 </div>
               </div>
@@ -53,9 +47,7 @@ const Home = () => {
                 />
                 <div className="small-banner-content position-absolute">
                   <h4>Yüksək Keyfiyyətli</h4>
-                  <h5>
-                    LongLife <span> 504/507</span>{' '}
-                  </h5>
+                  <h5>LongLife 504/507</h5>
                   <p>50 azn'dən başlayaraq</p>
                 </div>
               </div>
@@ -67,9 +59,7 @@ const Home = () => {
                 />
                 <div className="small-banner-content position-absolute">
                   <h4>Yüksək Keyfiyyətli</h4>
-                  <h5>
-                    LongLife <span> 504/507</span>{' '}
-                  </h5>
+                  <h5>LongLife 504/507</h5>
                   <p>50 azn'dən başlayaraq</p>
                 </div>
               </div>
@@ -81,9 +71,7 @@ const Home = () => {
                 />
                 <div className="small-banner-content position-absolute">
                   <h4>Yüksək Keyfiyyətli</h4>
-                  <h5>
-                    LongLife <span> 504/507</span>{' '}
-                  </h5>
+                  <h5>LongLife 504/507</h5>
                   <p>50 azn'dən başlayaraq</p>
                 </div>
               </div>
@@ -112,7 +100,7 @@ const Home = () => {
       </Container>
       <Container class1="home-wrapper-2 py-5">
         <div className="row">
-          <div className="col-12">
+          <div className="col-12 pb-3">
             <div className="categories d-flex justify-content-between align-items-center">
               <div className="d-flex gap-30 align-items-center">
                 <div>
@@ -168,7 +156,6 @@ const Home = () => {
         </div>
       </Container>
       <Container class1="marque-wrapper py-5">
-        {' '}
         <div className="row">
           <div className="col-12">
             <div className="marquee-inner-wrapper card-wrapper">

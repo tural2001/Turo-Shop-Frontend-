@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import BreadCrump from '../components/BreadCrump';
 import Meta from '../components/Meta';
 import ProductCard from '../components/ProductCard';
 import ReactStars from 'react-rating-stars-component';
@@ -29,7 +28,6 @@ const SingleProduct = () => {
   return (
     <>
       <Meta title={'ShippingPolicy'} />
-      <BreadCrump title={'shipping'} />
       <Container class1="main-product-wrapper py-5 home-wrapper">
         <div className="row">
           <div className="col-6">

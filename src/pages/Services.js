@@ -64,9 +64,9 @@ const Services = () => {
             <h3 className="section-heading">Diaqnostika</h3>
           </div>
         </div>
-        <div className="row py-5 mb-5">
+        <div className="row mb-2">
           <div className="col-4">
-            <div>
+            <div className="im">
               <img
                 src="images/blog-1.jpeg"
                 className="img-fluid rounded-pill"
@@ -139,12 +139,21 @@ const Services = () => {
             </div>
           </div>
         </div>
-        <div className="row">
+        <div className="row mt-3">
           <div className="col-12 mb-3">
             <h3 className="section-heading">Yağlama</h3>
           </div>
         </div>
         <div className="row">
+          <div className="col-4">
+            <div>
+              <img
+                src="images/oil-change.jpeg"
+                className="img-fluid rounded-pill"
+                alt="diagnostic"
+              />
+            </div>
+          </div>
           <div className="col-8 py-2">
             <div className="check">
               <ul className="d-flex flex-column justify-content-center gap-15">
@@ -197,7 +206,7 @@ const Services = () => {
                   </p>
                 </li>
               </ul>
-              <div className="click-2 mb-1">
+              <div className="click mb-1">
                 <Link to="/login" className="d-flex gap-15">
                   <img
                     src="images/click.svg"
@@ -209,22 +218,13 @@ const Services = () => {
               </div>
             </div>
           </div>
-          <div className="col-4">
-            <div>
-              <img
-                src="images/oil-change.jpeg"
-                className="img-fluid rounded-pill"
-                alt="diagnostic"
-              />
-            </div>
-          </div>
         </div>
-        <div className="row mt-3">
+        <div className="row ">
           <div className="col-12">
             <h3 className="section-heading mt-5">Təmir</h3>
           </div>
         </div>
-        <div className="row py-5 mb-5">
+        <div className="row py-4">
           <div className="col-4">
             <div>
               <img

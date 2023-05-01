@@ -1,13 +1,11 @@
 import React from 'react';
 import Meta from '../components/Meta';
-import BreadCrump from '../components/BreadCrump';
 import Container from '../components/Container';
 
 const Wishlist = () => {
   return (
     <>
       <Meta title={'Wishlist'} />
-      <BreadCrump title="Wishlist" />
       <Container class1="wishlist-wrapper home-wrapper-2 py-5">
         <div className="row">
           <div className="col-3">

@@ -5,8 +5,8 @@ import Meta from '../components/Meta';
 const Resetpassword = () => {
   return (
     <>
-      <Meta title={'Signup'} />
-      <Container class1="signup-wrapper py-5 home-wrapper-2">
+      <Meta title={'Reset'} />
+      <Container class1="reset-wrapper py-5 home-wrapper-2">
         <div className="row py-5 mb-5">
           <div className="col-12">
             <div className="auth-card">

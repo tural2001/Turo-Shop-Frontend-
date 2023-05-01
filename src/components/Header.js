@@ -1,10 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
-import { GoGitCompare } from 'react-icons/go';
-import { SlLike } from 'react-icons/sl';
-import { FaUser } from 'react-icons/fa';
-import { SlBasket } from 'react-icons/sl';
 
 const Header = () => {
   return (
@@ -19,8 +15,9 @@ const Header = () => {
             </div>
             <div className="col-6">
               <p className="text-end text-white mb-0">
-                <a className="text-white mb-0" href="tel:+994 8721231">
-                  Əlaqə: +994 77-777-77-77
+                Əlaqə:
+                <a className="text-white" href="tel:+994 8721231">
+                  +994 77-777-77-77
                 </a>
               </p>
             </div>
@@ -41,12 +38,12 @@ const Header = () => {
               <div className="input-group">
                 <input
                   type="text"
-                  className="form-control py-2"
+                  className="form-control "
                   placeholder="Məhsulu burada axtarın..."
                   aria-label="Məhsulu burada axtarın..."
                   aria-describedby="basic-addon2"
                 />
-                <span className="input-group-text p-3" id="basic-addon2">
+                <span className="input-group-text" id="basic-addon2">
                   <BsSearch className="fs-6" />
                 </span>
               </div>
@@ -60,7 +57,10 @@ const Header = () => {
                   >
                     <GoGitCompare className="fs-4" />
                     <p className="mb-0">
-                      Məhsul <br /> Müqayisəsi
+                      Məhsul{' '}
+                      <span>
+                        <br /> Müqayisəsi
+                      </span>
                     </p>
                   </Link>
                 </div>
@@ -109,8 +109,8 @@ const Header = () => {
         <div className="container-xxl">
           <div className="row">
             <div className="col-12">
-              <div className="menu-bottom d-flex align-items-center gap-700">
-                <div>
+              <div className="menu-bottom d-flex justify-content-between align-items-center">
+                <div className="drop">
                   <div className="dropdown">
                     <button
                       className="btn btn-secondary dropdown-toggle bg-transparent border-0 gap-15 d-flex align-items-center"

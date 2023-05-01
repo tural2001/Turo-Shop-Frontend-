@@ -1,6 +1,10 @@
 import React from 'react';
 import Container from '../components/Container';
 import Meta from '../components/Meta';
+import { AiOutlineHome } from 'react-icons/ai';
+import { BsFillTelephoneInboundFill } from 'react-icons/bs';
+import { BsFillEnvelopeFill } from 'react-icons/bs';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
 
 const Contact = () => {
   return (
@@ -65,38 +69,22 @@ const Contact = () => {
                 <h3 className="contact-title mb-4">Bizə Müraciət Edin</h3>
                 <div>
                   <ul className="ps-0">
-                    <li className="mb-3 d-flex gap-15 align-items-center">
-                      <img
-                        src="images/home-contact.svg"
-                        className="fs-5"
-                        alt="home"
-                      />
+                    <li className="mb-5 d-flex gap-15 align-items-center">
+                      <AiOutlineHome className="fs-2" />
                       <address className="mb-0">
                         Babak 7, Araz market yaxınlığı,dayanacağın yanı
                       </address>
                     </li>
-                    <li className="mb-3 d-flex gap-15 align-items-center">
-                      <img
-                        src="images/call-contact.svg"
-                        className="fs-5"
-                        alt="call"
-                      />
+                    <li className="mb-5 d-flex gap-15 align-items-center">
+                      <BsFillTelephoneInboundFill className="fs-4" />
                       <a href="tel:+994 7777777">+994 077-777-7777</a>
                     </li>
-                    <li className="mb-3 d-flex gap-15 align-items-center">
-                      <img
-                        src="images/mail-contact.svg"
-                        className="fs-5"
-                        alt="mail"
-                      />
+                    <li className="mb-5 d-flex gap-15 align-items-center">
+                      <BsFillEnvelopeFill className="fs-2" />
                       <a href="mailto:tural@mail.ru">tural@mail.ru</a>
                     </li>
                     <li className="mb-3 d-flex gap-15 align-items-center">
-                      <img
-                        src="images/info-contact.svg"
-                        className="fs-5"
-                        alt="info"
-                      />
+                      <AiOutlineInfoCircle className="fs-2" />
                       <p className="mb-0">1-5 günlər 9:00-18:00-dək</p>
                     </li>
                   </ul>

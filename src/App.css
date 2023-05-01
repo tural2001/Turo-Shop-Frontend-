@@ -83,8 +83,8 @@ body {
     font-size: 0.4rem;
   }
   .header-upper .input-group input.form-control {
-    width: 30% !important;
-    height: 30% !important;
+    width: 20% !important;
+    height: 20% !important;
     margin-top: 0.5rem !important;
   }
   .header-upper .col-5 {
@@ -813,16 +813,16 @@ a {
 /* Header Part */
 
 .header-top-strip {
-  border-bottom: 1px solid var(--color-3b4149);
+  border-bottom: 1px solid rgb(53, 53, 52);
   background-color: var(--color-131921);
 }
 .header-upper {
-  background-color: var(--color-26063f);
+  background-color: #1d1a1a;
 }
 
 .header-bottom {
-  border-top: 1px solid rgb(61, 33, 69);
-  background-color: var(--color-26063f);
+  border-top: 1px solid #1d1a1a;
+  background-color: #1d1a1a;
 }
 .header-upper .input-group-text {
   background-color: var(--color-febd69);
@@ -854,6 +854,7 @@ a {
   padding: 10px;
   margin-bottom: 1px;
   border-bottom: 1px solid var(--color-3b4149);
+  background-color: #1d1a1a;
 }
 .header-bottom .dropdown-item:hover {
   background-color: transparent;
@@ -864,7 +865,7 @@ a {
 
 /* Footer Part */
 footer {
-  background-color: var(--color-151414);
+  background-color: #1d1a1a;
 }
 footer:not(:first-child) {
   border-top: 1px solid rgba(255, 255, 255, 0.1);

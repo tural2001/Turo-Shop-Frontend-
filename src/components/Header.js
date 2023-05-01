@@ -1,6 +1,10 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
+import { GoGitCompare } from 'react-icons/go';
+import { SlLike } from 'react-icons/sl';
+import { FaUser } from 'react-icons/fa';
+import { SlBasket } from 'react-icons/sl';
 
 const Header = () => {
   return (
@@ -15,9 +19,8 @@ const Header = () => {
             </div>
             <div className="col-6">
               <p className="text-end text-white mb-0">
-                Əlaqə:
-                <a className="text-white" href="tel:+994 8721231">
-                  +994 77-777-77-77
+                <a className="text-white mb-0" href="tel:+994 8721231">
+                  Əlaqə: +994 77-777-77-77
                 </a>
               </p>
             </div>
@@ -55,7 +58,7 @@ const Header = () => {
                     to="/compare-product"
                     className="d-flex align-items-center gap-10 text-white"
                   >
-                    <img src="images/compare.svg" alt="compare" />
+                    <GoGitCompare className="fs-4" />
                     <p className="mb-0">
                       Məhsul <br /> Müqayisəsi
                     </p>
@@ -66,7 +69,7 @@ const Header = () => {
                     to="/wishlist"
                     className="d-flex align-items-center gap-10 text-white"
                   >
-                    <img src="images/wishlist.svg" alt="wishlist" />
+                    <SlLike className="fs-4" />
                     <p className="mb-0">
                       Sevimlilər <br />
                       siyahısı
@@ -78,7 +81,7 @@ const Header = () => {
                     to="/login"
                     className="d-flex align-items-center gap-10 text-white"
                   >
-                    <img src="images/user.svg" alt="user" />
+                    <FaUser className="fs-4" />
                     <p className="mb-0">
                       Giriş <br /> Hesabım
                     </p>
@@ -89,7 +92,8 @@ const Header = () => {
                     to="/cart"
                     className="d-flex align-items-center gap-10 text-white"
                   >
-                    <img src="images/cart.svg" alt="cart" />
+                    <SlBasket className="fs-3" />
+
                     <div className="d-flex flex-column gap-10">
                       <span className="badge bg-white text-dark">0</span>
                       <p className="mb-0">200Azn</p>
@@ -116,7 +120,7 @@ const Header = () => {
                       aria-expanded="false"
                     >
                       <img src="images/menu.svg" alt="" />
-                      <span className="me-5 d-inline-block">Kateqoriyalar</span>
+                      <span className="me-5 ">Kateqoriyalar</span>
                     </button>
                     <ul
                       className="dropdown-menu"

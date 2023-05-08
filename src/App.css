@@ -58,6 +58,9 @@ a {
   text-decoration: none;
   display: inline-block;
 }
+.form-control {
+  padding: 1.5px;
+}
 .form-control:focus {
   box-shadow: none;
   border-color: inherit;
@@ -93,16 +96,25 @@ a {
 /* Header Part */
 
 .header-top-strip {
+  display: flex;
   border-bottom: 1px solid rgb(53, 53, 52);
   background-color: var(--color-131921);
 }
+.header-top-strip a:hover {
+  color: orange !important;
+}
 .header-upper {
-  background-color: #1d1a1a;
+  background-color: black;
+  border-bottom: 0.2px solid;
+}
+.header-upper a:hover {
+  color: red !important;
+  transition: 0.3s;
 }
 
 .header-bottom {
   border-top: 1px solid #1d1a1a;
-  background-color: #1d1a1a;
+  background-color: black;
 }
 .header-upper .input-group-text {
   background-color: var(--color-febd69);
@@ -116,6 +128,10 @@ a {
   font-weight: 400;
   letter-spacing: 0.3;
   text-transform: uppercase;
+}
+.header-bottom .menu-links a:hover {
+  color: orange !important;
+  transition: 0.3s;
 }
 
 .header-bottom .dropdown button:focus {
@@ -556,8 +572,7 @@ footer .input-group img {
   transition: 0.5s;
   font-size: 25px;
   color: #fff;
-  text-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
-    0 0 100px #03e9f4;
+  text-shadow: 0 0 5px #03e9f4;
 }
 
 .services-wrapper-1 {
@@ -570,9 +585,8 @@ footer .input-group img {
 .logo b {
   font: 400 19vh 'Vibur';
   font-size: 4rem;
-  color: #fee;
-  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444,
-    0 0 0.1em #ff4444, 0 10px 3px #000;
+  color: rgb(245, 213, 213);
+  text-shadow: 0 0 5px #ff4444;
 }
 .logo b span {
   animation: blink linear infinite 2s;
@@ -631,13 +645,6 @@ footer .input-group img {
   margin-left: 710px;
 }
 
-.click p,
-.click-2 p {
-  color: white;
-  background-color: rgb(50, 70, 118);
-  border-radius: 10px;
-  padding: 10px;
-}
 /* Services Page end Here */
 
 /* Compare Product Page */
@@ -927,3 +934,75 @@ footer .input-group img {
 }
 
 /* Shipping page end */
+.btn-3 {
+  background: rgb(0, 172, 238);
+  background: linear-gradient(
+    0deg,
+    rgb(96, 190, 228) 0%,
+    rgb(102, 167, 232) 100%
+  );
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn-3 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-3:before,
+.btn-3:after {
+  position: absolute;
+  content: '';
+  right: 0;
+  top: 0;
+  background: rgba(2, 126, 251, 1);
+  transition: all 0.3s ease;
+}
+.btn-3:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-3:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3:hover {
+  background: transparent;
+  box-shadow: none;
+}
+.btn-3:hover:before {
+  height: 100%;
+}
+.btn-3:hover:after {
+  width: 100%;
+}
+.btn-3 span:hover {
+  color: rgba(2, 126, 251, 1);
+}
+.btn-3 span:before,
+.btn-3 span:after {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0;
+  background: rgba(2, 126, 251, 1);
+  transition: all 0.3s ease;
+}
+.btn-3 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-3 span:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3 span:hover:before {
+  height: 100%;
+}
+.btn-3 span:hover:after {
+  width: 100%;
+}

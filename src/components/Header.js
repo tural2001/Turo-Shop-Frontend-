@@ -1,6 +1,10 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
+import { GoGitCompare } from 'react-icons/go';
+import { SlLike } from 'react-icons/sl';
+import { FaUser } from 'react-icons/fa';
+import { SlBasket } from 'react-icons/sl';
 
 const Header = () => {
   return (
@@ -13,18 +17,15 @@ const Header = () => {
                 100 AZN-dən yuxarı pulsuz çatdırılma
               </p>
             </div>
-            <div className="col-6">
-              <p className="text-end text-white mb-0">
-                Əlaqə:
-                <a className="text-white" href="tel:+994 8721231">
-                  +994 77-777-77-77
-                </a>
-              </p>
+            <div className="col-6 d-flex justify-content-end">
+              <a className="text-white" href="tel:+994 8721231">
+                Əlaqə: +994 55-239-11-12
+              </a>
             </div>
           </div>
         </div>
       </header>
-      <header className="header-upper py-3">
+      <header className="header-upper head py-3">
         <div className="container-xxl">
           <div className="row align-items-center">
             <div className="col-2">

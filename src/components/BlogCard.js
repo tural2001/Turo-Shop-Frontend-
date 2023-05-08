@@ -14,8 +14,10 @@ const BlogCard = () => {
           <p className="desc">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.Nihil nisi!
           </p>
-          <Link to="/" className="button">
-            Read More
+          <Link to="/">
+            <button class="custom-btn btn-3">
+              <span>Bizə Qoşul</span>
+            </button>
           </Link>
         </div>
       </div>

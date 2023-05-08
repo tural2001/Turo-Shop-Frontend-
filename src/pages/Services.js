@@ -128,12 +128,9 @@ const Services = () => {
               </ul>
               <div className="d-flex click mb-1">
                 <Link to="/login" className="d-flex gap-15 ">
-                  <img
-                    src="images/click.svg"
-                    className="img-fluid"
-                    alt="click"
-                  />
-                  <p className="mb-0">Bizə Qoşul</p>
+                  <button class="custom-btn btn-3">
+                    <span>Bizə Qoşul</span>
+                  </button>
                 </Link>
               </div>
             </div>
@@ -208,12 +205,9 @@ const Services = () => {
               </ul>
               <div className="click mb-1">
                 <Link to="/login" className="d-flex gap-15">
-                  <img
-                    src="images/click.svg"
-                    className="img-fluid"
-                    alt="click"
-                  />
-                  <p className="mb-0">Bizə Qoşul</p>
+                  <button class="custom-btn btn-3">
+                    <span>Bizə Qoşul</span>
+                  </button>
                 </Link>
               </div>
             </div>
@@ -288,12 +282,9 @@ const Services = () => {
               </ul>
               <div className="click mb-1">
                 <Link to="/login" className="d-flex gap-15">
-                  <img
-                    src="images/click.svg"
-                    className="img-fluid"
-                    alt="click"
-                  />
-                  <p className="mb-0">Bizə Qoşul</p>
+                  <button class="custom-btn btn-3">
+                    <span>Bizə Qoşul</span>
+                  </button>
                 </Link>
               </div>
             </div>

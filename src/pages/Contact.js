@@ -61,7 +61,9 @@ const Contact = () => {
                     ></textarea>
                   </div>
                   <div>
-                    <button className="button">Göndər</button>
+                    <button class="custom-btn btn-3">
+                      <span>Bizə Qoşul</span>
+                    </button>
                   </div>
                 </form>
               </div>

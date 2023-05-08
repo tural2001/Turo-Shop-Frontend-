@@ -1,7 +1,6 @@
 import React from 'react';
+import { MDBContainer, MDBTabsContent, MDBTabsPane } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
-import Container from '../components/Container';
-import Meta from '../components/Meta';
 import CustomInput from '../components/CustomInput';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -32,14 +31,14 @@ const Signup = () => {
       dispatch(registerUser(values));
     },
   });
+
   return (
-    <>
-      <Meta title={'Signup'} />
-      <Container class1="signup-wrapper py-5 home-wrapper-2">
-        <div className="row py-5 mb-5">
-          <div className="col-12">
-            <div className="auth-card">
-              <h3 className="text-center">Signup</h3>
+    <div className="row bg">
+      <div className="col-8 bg-image">
+        <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+          <MDBTabsContent>
+            <MDBTabsPane show={'tab1'}>
+              <h4 className="d-flex justify-content-center mb-5">Register</h4>
               <form
                 action=""
                 onSubmit={formik.handleSubmit}
@@ -57,7 +56,7 @@ const Signup = () => {
                   {formik.touched.name && formik.errors.name}
                 </div>
                 <CustomInput
-                  type="text"
+                  type="email"
                   name="email"
                   placeholder="Email"
                   value={formik.values.email}
@@ -66,6 +65,17 @@ const Signup = () => {
                 />
                 <div className="error text-danger">
                   {formik.touched.email && formik.errors.email}
+                </div>
+                <CustomInput
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={formik.values.password}
+                  onChange={formik.handleChange('password')}
+                  onBluer={formik.handleBlur('password')}
+                />
+                <div className="error text-danger">
+                  {formik.touched.password && formik.errors.password}
                 </div>
                 <CustomInput
                   type="tel"
@@ -78,33 +88,23 @@ const Signup = () => {
                 <div className="error text-danger">
                   {formik.touched.mobile && formik.errors.mobile}
                 </div>
-                <CustomInput
-                  className="mt-1"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  value={formik.values.password}
-                  onChange={formik.handleChange('password')}
-                  onBluer={formik.handleBlur('password')}
-                />
-                <div className="error text-danger">
-                  {formik.touched.password && formik.errors.password}
-                </div>
 
                 <div>
-                  <Link to="/forgot-password">Forgot Password</Link>
                   <div className="mt-3 d-flex justify-content-center align-items-center gap-10">
-                    <button className="border-0 btn-primary" type="submit">
-                      Create
+                    <button className="mb-4 w-100 bg-primary text-white border">
+                      Sign Up
                     </button>
                   </div>
                 </div>
               </form>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </>
+              <p className="text-center text-dark d-flex gap-10">
+                Already have an account? <Link to="/login">Login </Link>
+              </p>{' '}
+            </MDBTabsPane>
+          </MDBTabsContent>
+        </MDBContainer>
+      </div>
+    </div>
   );
 };
 

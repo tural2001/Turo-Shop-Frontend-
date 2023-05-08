@@ -1,4 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {
+  MDBContainer,
+  MDBTabs,
+  MDBTabsItem,
+  MDBTabsLink,
+  MDBTabsContent,
+  MDBTabsPane,
+  MDBBtn,
+  MDBIcon,
+  MDBInput,
+  MDBCheckbox,
+} from 'mdb-react-ui-kit';
 import Meta from '../components/Meta';
 import { Link } from 'react-router-dom';
 import Container from '../components/Container';
@@ -15,6 +27,7 @@ const loginSchema = yup.object({
     .required('Email is Required'),
   password: yup.string().required('Password is Required'),
 });
+
 const Login = () => {
   const dispatch = useDispatch();
   const formik = useFormik({
@@ -27,14 +40,14 @@ const Login = () => {
       dispatch(loginUser(values));
     },
   });
+
   return (
-    <>
-      <Meta title={'Login'} />
-      <Container class1="login-wrapper py-5 home-wrapper-2">
-        <div className="row py-5 mb-5">
-          <div className="col-12">
-            <div className="auth-card">
-              <h3 className="text-center">Login</h3>
+    <div className="row bg">
+      <div className="col-8 bg-image">
+        <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+          <MDBTabsContent>
+            <MDBTabsPane show={'tab1'}>
+              <h4 className="d-flex justify-content-center mb-5 ">Login</h4>
               <form
                 action=""
                 onSubmit={formik.handleSubmit}
@@ -63,22 +76,30 @@ const Login = () => {
                   {formik.touched.password && formik.errors.password}
                 </div>
                 <div>
-                  <Link to="/forgot-password">Forgot Password</Link>
                   <div className="mt-3 d-flex justify-content-center align-items-center gap-10">
-                    <button type="submit" className="border-0 btn-primary">
-                      Login
+                    <button className="mb-4 w-100 bg-primary text-white border">
+                      Sign In
                     </button>
-                    <Link to="/signup">
-                      <button className="border-0 btn-primary">Signup</button>
-                    </Link>
                   </div>
                 </div>
               </form>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </>
+              <div className="d-flex justify-content-between mx-4 mb-4">
+                <MDBCheckbox
+                  name="flexCheck"
+                  value=""
+                  id="flexCheckDefault"
+                  label="Remember me"
+                />
+                <Link to="/forgot-password">Forgot Password</Link>
+              </div>
+              <p className="text-center text-dark d-flex gap-10">
+                Not a member? <Link to="/signup">Register </Link>
+              </p>{' '}
+            </MDBTabsPane>
+          </MDBTabsContent>
+        </MDBContainer>
+      </div>
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
 import { GoGitCompare } from 'react-icons/go';
@@ -7,6 +7,12 @@ import { FaUser } from 'react-icons/fa';
 import { SlBasket } from 'react-icons/sl';
 
 const Header = () => {
+  const [showInput, setShowInput] = useState(false);
+
+  const handleIconClick = () => {
+    setShowInput(!showInput);
+  };
+
   return (
     <>
       <header className="header-top-strip">
@@ -28,25 +34,34 @@ const Header = () => {
       <header className="header-upper head py-3">
         <div className="container-xxl">
           <div className="row align-items-center">
-            <div className="col-2">
+            <div className="col-2 mt-3">
               <h2>
-                <Link to="/" className="text-white">
+                <Link to="/" className="text-white first-link">
                   Turo Store
                 </Link>
               </h2>
             </div>
             <div className="col-5">
-              <div className="input-group">
-                <input
-                  type="text"
-                  className="form-control "
-                  placeholder="Məhsulu burada axtarın..."
-                  aria-label="Məhsulu burada axtarın..."
-                  aria-describedby="basic-addon2"
-                />
-                <span className="input-group-text" id="basic-addon2">
+              <div
+                className="input-group"
+                style={{ display: 'flex', alignItems: 'center' }}
+              >
+                <span
+                  className="input-group-text bg-white"
+                  onClick={handleIconClick}
+                  id="basic-addon2"
+                >
                   <BsSearch className="fs-6" />
                 </span>
+                {showInput && (
+                  <input
+                    type="text"
+                    className="form-control form-control-sm"
+                    placeholder="Məhsulu burada axtarın..."
+                    aria-label="Məhsulu burada axtarın..."
+                    aria-describedby="basic-addon2"
+                  />
+                )}
               </div>
             </div>
             <div className="col-5">

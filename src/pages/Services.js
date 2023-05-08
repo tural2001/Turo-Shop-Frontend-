@@ -8,7 +8,7 @@ const Services = () => {
   return (
     <>
       <Meta title={'Xidmətlər'} />
-      <Container class1="services-wrapper-1 py-5">
+      <Container class1="services-wrapper-1 py-5 ">
         <div className="row">
           <div className="col-12">
             <div className="logo d-flex justify-content-center animate__animated animate__flipInX">
@@ -17,40 +17,40 @@ const Services = () => {
               </b>
             </div>
           </div>
-          <div className=" col-12 ">
-            <p className="d-flex justify-content-center mt-5 animate__heartBeat">
+          <div className="col-12">
+            <p className="d-flex justify-content-center mt-3 animate__heartBeat">
               “Biz sizin bütün avtomobil ehtiyaclarınız üçün buradayıq,
               təhlükəsiz və rahat gediş üçün bizə etibar edin!
             </p>
           </div>
         </div>
       </Container>
-      <Container class1="marque-wrapper py-5">
+      <Container class1="marque-wrapper py-2 bg-light">
         <div className="container-xxl">
           <div className="row">
             <div className="col-12">
-              <div className="marque-inner-wrapper card-wrapper">
-                <Marquee>
+              <div className="marque-inner-wrapper card-wrapper ">
+                <Marquee className="">
                   <div className="mx-4 w-25">
-                    <img src="images/opel.svg" width="120px" alt="brand" />
+                    <img src="images/opel.svg" width="60px" alt="brand" />
                   </div>
                   <div className="mx-4 w-25">
-                    <img src="images/bmw.svg" width="100px" alt="brand" />
+                    <img src="images/bmw.svg" width="60px" alt="brand" />
                   </div>
                   <div className="mx-4 w-25">
-                    <img src="images/chrysler.svg" width="100px" alt="brand" />
+                    <img src="images/chrysler.svg" width="60px" alt="brand" />
                   </div>
                   <div className="mx-4 w-25">
-                    <img src="images/mercedes.svg" width="100px" alt="brand" />
+                    <img src="images/mercedes.svg" width="60px" alt="brand" />
                   </div>
                   <div className="mx-4 w-25">
-                    <img src="images/kia.svg" width="100px" alt="brand" />
+                    <img src="images/kia.svg" width="60px" alt="brand" />
                   </div>
                   <div className="mx-4 w-25">
-                    <img src="images/hyundai.svg" width="100px" alt="brand" />
+                    <img src="images/hyundai.svg" width="60px" alt="brand" />
                   </div>
                   <div className="mx-4 w-25">
-                    <img src="images/romeo.svg" width="100px" alt="brand" />
+                    <img src="images/romeo.svg" width="60px" alt="brand" />
                   </div>
                 </Marquee>
               </div>

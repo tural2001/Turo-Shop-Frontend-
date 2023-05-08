@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="row justify-content-between">
             <div className="col-4">
               <div className="footer-top-data d-flex gap-15 align-items-center">
-                <img src="images/location.svg" width="45px" alt="location" />
+                <img src="images/location2.svg" width="45px" alt="location2" />
                 <h4 className="mb-0 text-white fw-bolder">
                   Ünvan
                   <br /> <span className="fw-lighter fs-6">Baku.Azadlıq</span>

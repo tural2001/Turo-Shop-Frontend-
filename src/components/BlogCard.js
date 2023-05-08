@@ -1,26 +1,56 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import {
+  CCardText,
+  CCarousel,
+  CCarouselCaption,
+  CCarouselItem,
+  CImage,
+} from '@coreui/react';
 
-const BlogCard = () => {
+const BlogCard = (props) => {
+  const { data } = props;
+
+  const [showText, setShowText] = useState(Array(data.length).fill(false));
+
+  const handleClick = (index) => {
+    const newShowText = [...showText];
+    newShowText[index] = !showText[index];
+    setShowText(newShowText);
+  };
+
   return (
-    <div className="col-3">
-      <div className="blog-card">
-        <div className="card-image">
-          <img src="images/blog-1.jpeg" className="img-fluid" alt="blog" />
-        </div>
-        <div className="blog-content">
-          <p className="date">1 mart 2023</p>
-          <h5 className="title">A beautiful sunday morning renaissance</h5>
-          <p className="desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.Nihil nisi!
-          </p>
-          <Link to="/">
-            <button class="custom-btn btn-3">
-              <span>Bizə Qoşul</span>
-            </button>
-          </Link>
-        </div>
-      </div>
+    <div className="col-12 d-flex justify-content-center">
+      <CCarousel controls indicators className="w-50">
+        {Array.isArray(data) &&
+          data.map((item, index) => {
+            return (
+              <CCarouselItem key={index}>
+                <CImage
+                  className="d-block w-100"
+                  src={
+                    item?.images
+                      ? item.images
+                      : 'https://i0.wp.com/learn.onemonth.com/wp-content/uploads/2017/08/1-10.png?fit=845%2C503&ssl=1'
+                  }
+                  alt="slide 1"
+                />
+                <CCarouselCaption className="d-none d-md-block">
+                  <h5>{item?.title}</h5>
+                  <CCardText>
+                    {!showText[index]
+                      ? item?.description.substring(0, 10) + '...'
+                      : item?.description}
+                  </CCardText>
+                  <Button variant="primary" onClick={() => handleClick(index)}>
+                    {showText[index] ? 'Hide' : 'Read More'}
+                  </Button>
+                </CCarouselCaption>
+              </CCarouselItem>
+            );
+          })}
+      </CCarousel>
     </div>
   );
 };

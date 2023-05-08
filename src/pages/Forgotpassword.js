@@ -1,39 +1,64 @@
 import React from 'react';
-import Meta from '../components/Meta';
+import { MDBContainer, MDBTabsContent, MDBTabsPane } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
-import Container from '../components/Container';
 import CustomInput from '../components/CustomInput';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../features/user/userSlice';
 
 const Forgotpassword = () => {
   return (
-    <>
-      <Meta title={'Forgotpassword'} />
-      <Container class1="forgot-wrapper py-5 home-wrapper-2">
-        <div className="row py-5 mb-5">
-          <div className="col-12">
-            <div className="auth-card">
-              <h3 className="text-center mb-3">Reset your password</h3>
-              <p className="text-center my-2 mb-3">
-                We will send you an email reset your password
-              </p>
-              <form action="" className="d-flex flex-column gap-15">
-                <CustomInput type="email" name="email" placeholder="Email" />
+    <div className="row bg">
+      <div className="col-8 bg-image">
+        <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+          <MDBTabsContent>
+            <MDBTabsPane show={'tab1'}>
+              <h4 className="d-flex justify-content-center">
+                Reset your password
+              </h4>
+              <h6 className="d-flex justify-content-center">
+                We will send you
+              </h6>
+              <form
+                action=""
+                // onSubmit={formik.handleSubmit}
+                className="d-flex flex-column gap-15"
+              >
+                <CustomInput
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  className="mt-3"
+                  //   value={formik.values.email}
+                  //   onChange={formik.handleChange('email')}
+                  //   onBluer={formik.handleBlur('email')}
+                />
+                {/* <div className="error text-danger">
+                  {formik.touched.email && formik.errors.email}
+                </div> */}
                 <div>
-                  <div className="mt-3 d-flex justify-content-center flex-column align-items-center gap-15">
-                    <button className="border-0 btn-primary" type="submit">
-                      Submit
+                  <div className="mt-3 d-flex justify-content-center align-items-center gap-10">
+                    <button
+                      type="submit"
+                      className="mb-4 w-100 bg-primary border"
+                    >
+                      <Link to={'/reset-password'} className="text-white">
+                        Reset Password
+                      </Link>
                     </button>
-                    <Link to="/login">
-                      <h5>Cancel</h5>
-                    </Link>
                   </div>
                 </div>
               </form>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </>
+              <div className="d-flex justify-content-between mx-4 mb-4"></div>
+              <p className="text-center text-dark d-flex gap-10">
+                Have a account? <Link to="/login">Cancel </Link>
+              </p>{' '}
+            </MDBTabsPane>
+          </MDBTabsContent>
+        </MDBContainer>
+      </div>
+    </div>
   );
 };
 

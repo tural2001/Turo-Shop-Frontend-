@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -65,6 +68,7 @@ a {
   box-shadow: none;
   border-color: inherit;
 }
+
 .gap-5 {
   gap: 5px;
 }
@@ -79,6 +83,11 @@ a {
 }
 .gap-700 {
   gap: 700px;
+}
+
+.home-btn {
+  border-radius: 20px;
+  padding: 100px;
 }
 
 .button {
@@ -108,8 +117,17 @@ a {
   border-bottom: 0.2px solid;
 }
 .header-upper a:hover {
+  color: orange !important;
+  transition: 0.3s;
+}
+
+.header-upper a.first-link:hover {
   color: red !important;
   transition: 0.3s;
+}
+
+.header-upper h2 {
+  font-family: 'Dancing Script', cursive;
 }
 
 .header-bottom {
@@ -118,6 +136,13 @@ a {
 }
 .header-upper .input-group-text {
   background-color: var(--color-febd69);
+  border-radius: 20px;
+}
+
+.header-upper .input-group input {
+  border-radius: 20px;
+  height: 16px;
+  border-color: #558cd9;
 }
 
 .header-bottom .menu-links a,
@@ -175,6 +200,18 @@ footer .input-group img {
 /* Footer Part Ends */
 
 /* Home Page */
+.home-wrapper-1 div {
+  padding: 0 !important;
+  margin: 0;
+  border: 20px;
+  font-family: 'Bruno Ace SC', cursive;
+  font-weight: 800 !important;
+}
+
+.home-wrapper-1 {
+  overflow: hidden;
+}
+
 .small-banner {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -304,17 +341,22 @@ footer .input-group img {
 /* Categories section ends here */
 
 /* Blog Part */
+.blogs {
+  display: flex;
+  flex: auto;
+}
 .blog-card {
   background-color: white;
   border-radius: 10px;
+  width: 35rem;
 }
 .blog-card img {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  width: 100%;
+  width: 70%;
 }
 .blog-content {
-  padding: 15px;
+  padding-right: 20px;
 }
 .blog-content.date {
   font-size: 13px;
@@ -326,6 +368,7 @@ footer .input-group img {
   padding: 0;
 }
 .blog-content h5 {
+  padding: 20px;
   font-size: 18px;
   color: var(--color-131921);
 }
@@ -535,6 +578,11 @@ footer .input-group img {
 /* Our store end here */
 
 /* Contact Page */
+
+.contact-wrapper {
+  background-image: url(https://marketplace.canva.com/EAD2962NKnQ/2/0/1600w/canva-rainbow-gradient-pink-and-purple-virtual-background-_Tcjok-d9b4.jpg);
+}
+
 .contact-inner-wrapper {
   padding: 20px 20px;
   border-radius: 15px;
@@ -545,7 +593,7 @@ footer .input-group img {
   width: 48%;
 }
 .contact-title {
-  font-size: 26px;
+  font-size: 1.3rem;
   font-weight: 500;
   line-height: 35px;
   text-align: left;
@@ -567,26 +615,30 @@ footer .input-group img {
 /* Contact Page ends here */
 
 /* Services Page */
+.services-wrapper-1 {
+  max-height: 200px;
+  overflow: hidden;
+}
 
 .services-wrapper-1 p {
   transition: 0.5s;
-  font-size: 25px;
+  font-size: 20px;
   color: #fff;
   text-shadow: 0 0 5px #03e9f4;
 }
 
 .services-wrapper-1 {
-  background: #112 url(//images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg) center
-    no-repeat;
+  background-image: url(https://img.freepik.com/free-vector/dark-gradient-background-with-copy-space_53876-99548.jpg);
   background-size: cover;
   margin: 0;
 }
 
 .logo b {
-  font: 400 19vh 'Vibur';
+  font-family: 'Dancing Script', cursive;
   font-size: 4rem;
   color: rgb(245, 213, 213);
   text-shadow: 0 0 5px #ff4444;
+  overflow: hidden;
 }
 .logo b span {
   animation: blink linear infinite 2s;
@@ -629,6 +681,7 @@ footer .input-group img {
 
 .services-wrapper-2 {
   background-color: var(--color-ededed);
+  background-size: cover;
 }
 
 .services-wrapper-2 ul {
@@ -640,9 +693,26 @@ footer .input-group img {
 
 .check {
   border-bottom: 1px solid var(--color-777777);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .click {
   margin-left: 710px;
+  overflow: hidden;
+}
+
+.click span {
+  overflow: hidden;
+}
+/* .check li:hover img {
+  display: block;
+}
+
+.check li img {
+  display: none;
+} */
+
+.services-wrapper-2 .click {
+  overflow-y: hidden !important;
 }
 
 /* Services Page end Here */
@@ -934,6 +1004,8 @@ footer .input-group img {
 }
 
 /* Shipping page end */
+
+/* Button */
 .btn-3 {
   background: rgb(0, 172, 238);
   background: linear-gradient(
@@ -1005,4 +1077,26 @@ footer .input-group img {
 }
 .btn-3 span:hover:after {
   width: 100%;
+}
+
+/* Button end */
+
+.bg-image {
+  background: inherit;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.bg {
+  background-image: url(https://marketplace.canva.com/EAD2962NKnQ/2/0/1600w/canva-rainbow-gradient-pink-and-purple-virtual-background-_Tcjok-d9b4.jpg);
+}
+
+.error {
+  font-size: 0.7rem;
+}
+
+.input input:focus {
+  border-color: #ba7abc;
+  box-shadow: rgba(251, 179, 234, 0.25) 0px 30px 60px -12px inset,
+    rgba(129, 127, 127, 0.3) 0px 18px 36px -18px inset;
 }

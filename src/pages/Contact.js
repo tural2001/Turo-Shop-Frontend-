@@ -12,19 +12,7 @@ const Contact = () => {
       <Meta title={'Əlaqə'} />
       <Container class1="contact-wrapper py-5 home-wrapper-2">
         <div className="row">
-          <div className="col-12">
-            <iframe
-              title="Google Maps"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96970.1375653932!2d49.56104081012017!3d40.578762149797164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x403096dcd0923f6b%3A0xdf4767c369322a71!2zU3VtcWF5xLF0!5e0!3m2!1str!2saz!4v1678136232703!5m2!1str!2saz"
-              width="600"
-              height="450"
-              className="border-0 w-100"
-              allowFullScreen="auto"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <div className="col-12 mt-5">
+          <div className="col-6">
             <div className="contact-inner-wrapper d-flex justify-content-between">
               <div>
                 <h3 className="contact-title mb-4">Əlaqə</h3>
@@ -72,27 +60,39 @@ const Contact = () => {
                 <div>
                   <ul className="ps-0">
                     <li className="mb-5 d-flex gap-15 align-items-center">
-                      <AiOutlineHome className="fs-2" />
-                      <address className="mb-0">
+                      <AiOutlineHome className="fs-4" />
+                      <address className="mb-0 mt-2">
                         Babak 7, Araz market yaxınlığı,dayanacağın yanı
                       </address>
                     </li>
                     <li className="mb-5 d-flex gap-15 align-items-center">
-                      <BsFillTelephoneInboundFill className="fs-4" />
+                      <BsFillTelephoneInboundFill className="fs-6" />
                       <a href="tel:+994 7777777">+994 077-777-7777</a>
                     </li>
                     <li className="mb-5 d-flex gap-15 align-items-center">
-                      <BsFillEnvelopeFill className="fs-2" />
+                      <BsFillEnvelopeFill className="fs-6" />
                       <a href="mailto:tural@mail.ru">tural@mail.ru</a>
                     </li>
                     <li className="mb-3 d-flex gap-15 align-items-center">
-                      <AiOutlineInfoCircle className="fs-2" />
+                      <AiOutlineInfoCircle className="fs-6" />
                       <p className="mb-0">1-5 günlər 9:00-18:00-dək</p>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
+          </div>
+          <div className="col-6 mt-4">
+            <iframe
+              title="Google Maps"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96970.1375653932!2d49.56104081012017!3d40.578762149797164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x403096dcd0923f6b%3A0xdf4767c369322a71!2zU3VtcWF5xLF0!5e0!3m2!1str!2saz!4v1678136232703!5m2!1str!2saz"
+              width="600"
+              height="450"
+              className="border-0 w-100"
+              allowFullScreen="auto"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </Container>

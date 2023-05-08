@@ -1,84 +1,68 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Marquee from 'react-fast-marquee';
 import BlogCard from '../components/BlogCard';
 import ProductCard from '../components/ProductCard';
 import SpecialProduct from '../components/SpecialProduct';
 import Container from '../components/Container';
 import { services } from '../utils/Data';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllBlogs } from '../features/blogs/blogSlice';
+import { moment } from 'moment';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
+  const blogState = useSelector((state) => state?.blog?.blog);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getblogs();
+  }, []);
+
+  const getblogs = () => {
+    dispatch(getAllBlogs());
+  };
   return (
     <>
-      <Container class1="home-wrapper-1 py-5 ">
+      <div className="home-wrapper-1" style={{ position: 'relative' }}>
         <div className="row">
           <div className="col-6">
-            <div className="main-banner position-relative">
-              <img
-                src="images/main-banner-1.jpg"
-                className="img-fluid rounded-3"
-                alt="main banner"
-              />
-              <div className="main-banner-content position-absolute">
-                <h4>Yüksək Keyfiyyətli</h4>
-                <h5>LongLife 504/507</h5>
-                <p>50 azn'dən başlayaraq</p>
-              </div>
-            </div>
+            <img
+              src="https://upgradedpoints.com/wp-content/uploads/2022/05/Turo_Scenic.jpg"
+              alt=""
+              className="img-fluid"
+              style={{ width: '100%', height: '100%', opacity: 0.7 }}
+            />
           </div>
-          <div className="col-6 ">
-            <div className="d-flex flex-wrap gap-10 justify-content-between align-items-center mt-4 smal">
-              <div className="small-banner position-relative">
-                <img
-                  src="images/catbanner-1.jpeg"
-                  className="img-fluid rounded-3"
-                  alt="main banner"
-                />
-                <div className="small-banner-content position-absolute">
-                  <h4>Yüksək Keyfiyyətli</h4>
-                  <h5>LongLife 504/507</h5>
-                  <p>50 azn'dən başlayaraq</p>
-                </div>
-              </div>
-              <div className="small-banner position-relative">
-                <img
-                  src="images/catbanner-3.webp"
-                  className="img-fluid rounded-3"
-                  alt="main banner"
-                />
-                <div className="small-banner-content position-absolute">
-                  <h4>Yüksək Keyfiyyətli</h4>
-                  <h5>LongLife 504/507</h5>
-                  <p>50 azn'dən başlayaraq</p>
-                </div>
-              </div>
-              <div className="small-banner position-relative">
-                <img
-                  src="images/catbanner-2.webp"
-                  alt="main banner"
-                  width="100%"
-                />
-                <div className="small-banner-content position-absolute">
-                  <h4>Yüksək Keyfiyyətli</h4>
-                  <h5>LongLife 504/507</h5>
-                  <p>50 azn'dən başlayaraq</p>
-                </div>
-              </div>
-              <div className="small-banner position-relative">
-                <img
-                  src="images/catbanner-4.jpeg"
-                  className="img-fluid rounded-3"
-                  alt="main banner"
-                />
-                <div className="small-banner-content position-absolute">
-                  <h4>Yüksək Keyfiyyətli</h4>
-                  <h5>LongLife 504/507</h5>
-                  <p>50 azn'dən başlayaraq</p>
-                </div>
-              </div>
+          <div className="col-6">
+            <img
+              src="https://www.nidirect.gov.uk/sites/default/files/images/news/online-shopping.jpeg"
+              alt=""
+              className="img-fluid"
+              style={{ width: '100%', height: '100%', opacity: 0.7 }}
+            />
+            <div
+              className="text-center"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+              }}
+            >
+              <h1 className="text-dark">
+                Indi alış <span className="text-dark">-</span> verişə başla və
+                xüsusi endirimlərdən yararlan
+              </h1>
+              <Link
+                to={'/signup'}
+                className="btn btn-light p-3 mt-5 home-btn  btn-outline-warning"
+              >
+                Qeydiyyat
+              </Link>
             </div>
           </div>
         </div>
-      </Container>
+      </div>
+
       <Container class1="home-wrapper-2 py-5">
         <div className="row">
           <div className="col-12">
@@ -155,31 +139,31 @@ const Home = () => {
           <SpecialProduct />
         </div>
       </Container>
-      <Container class1="marque-wrapper py-5">
+      <Container class1="marque-wrapper py-2">
         <div className="row">
           <div className="col-12">
             <div className="marquee-inner-wrapper card-wrapper">
               <Marquee>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-01.svg" width="200px" alt="brand" />
+                  <img src="images/brand-01.svg" width="100px" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-02.svg" width="120px" alt="brand" />
+                  <img src="images/brand-02.svg" width="80px" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-03.svg" width="120px" alt="brand" />
+                  <img src="images/brand-03.svg" width="80px" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-04.svg" width="120px" alt="brand" />
+                  <img src="images/brand-04.svg" width="80px" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-05.svg" width="120px" alt="brand" />
+                  <img src="images/brand-05.svg" width="80px" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-06.svg" width="100px" alt="brand" />
+                  <img src="images/brand-06.svg" width="90px" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-07.svg" width="120px" alt="brand" />
+                  <img src="images/brand-07.svg" width="80px" alt="brand" />
                 </div>
               </Marquee>
             </div>
@@ -191,10 +175,33 @@ const Home = () => {
           <div className="col-12">
             <h3 className="section-heading">Bizim Son Bloqlarımız</h3>
           </div>
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
+          {/* <div className="row">
+            {Array.isArray() &&
+              blogState?.map((item, index) => {
+                return (
+                  <div className="col-6 mb-3" key={index}>
+                    <BlogCard
+                      id={item?._id}
+                      title={item?.title}
+                      description={item?.description}
+                      image={
+                        item?.images && item.images.length > 0
+                          ? item.images[0].url
+                          : 'camera.jpg'
+                      }
+                      date={moment(item?.createdAt).format(
+                        'MMMM Do YYYY,h:mm a'
+                      )}
+                    />
+                  </div>
+                );
+              })}
+          </div> */}
+          <div className="row">
+            <div className="d-flex gap-10 flex-wrap">
+              <BlogCard data={blogState} />
+            </div>
+          </div>
         </div>
       </Container>
     </>

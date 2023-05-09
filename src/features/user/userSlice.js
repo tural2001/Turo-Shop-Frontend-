@@ -24,19 +24,8 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-export const addToWishlist = createAsyncThunk(
-  'product/wishlist',
-  async (prodId, thunkAPI) => {
-    try {
-      return await authService.addToWishList(prodId);
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error);
-    }
-  }
-);
-
 export const getUserWishList = createAsyncThunk(
-  'user/wishlist',
+  'auth/wishlist',
   async (thunkAPI) => {
     try {
       return await authService.getUserWishlist();
@@ -51,7 +40,7 @@ const getCustomerfromLocalStorage = localStorage.getItem('customer')
   : null;
 
 const initialState = {
-  user: getCustomerfromLocalStorage ? getCustomerfromLocalStorage : '',
+  user: getCustomerfromLocalStorage,
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -107,22 +96,7 @@ export const authSlice = createSlice({
           toast.info(action.error);
         }
       })
-      .addCase(addToWishlist.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(addToWishlist.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.isError = false;
-        state.isSuccess = true;
-        state.wishlist = action.payload;
-        state.message = 'Product added To Wishlist successfully';
-      })
-      .addCase(addToWishlist.rejected, (state, action) => {
-        state.isLoading = false;
-        state.isError = true;
-        state.isSuccess = false;
-        state.message = action.error;
-      })
+
       .addCase(getUserWishList.pending, (state) => {
         state.isLoading = true;
       })

@@ -1,14 +1,14 @@
 import React from 'react';
-import Marquee from 'react-fast-marquee';
 import { Link } from 'react-router-dom';
 import Container from '../components/Container';
 import Meta from '../components/Meta';
+import { GiCheckMark } from 'react-icons/gi';
 
 const Services = () => {
   return (
     <>
       <Meta title={'Xidmətlər'} />
-      <Container class1="services-wrapper-1 py-5 ">
+      <Container class1="services-wrapper-1  py-3">
         <div className="row">
           <div className="col-12">
             <div className="logo d-flex justify-content-center animate__animated animate__flipInX">
@@ -25,40 +25,7 @@ const Services = () => {
           </div>
         </div>
       </Container>
-      <Container class1="marque-wrapper py-2 bg-light">
-        <div className="container-xxl">
-          <div className="row">
-            <div className="col-12">
-              <div className="marque-inner-wrapper card-wrapper ">
-                <Marquee className="">
-                  <div className="mx-4 w-25">
-                    <img src="images/opel.svg" width="60px" alt="brand" />
-                  </div>
-                  <div className="mx-4 w-25">
-                    <img src="images/bmw.svg" width="60px" alt="brand" />
-                  </div>
-                  <div className="mx-4 w-25">
-                    <img src="images/chrysler.svg" width="60px" alt="brand" />
-                  </div>
-                  <div className="mx-4 w-25">
-                    <img src="images/mercedes.svg" width="60px" alt="brand" />
-                  </div>
-                  <div className="mx-4 w-25">
-                    <img src="images/kia.svg" width="60px" alt="brand" />
-                  </div>
-                  <div className="mx-4 w-25">
-                    <img src="images/hyundai.svg" width="60px" alt="brand" />
-                  </div>
-                  <div className="mx-4 w-25">
-                    <img src="images/romeo.svg" width="60px" alt="brand" />
-                  </div>
-                </Marquee>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Container>
-      <Container class1="services-wrapper-2 py-5">
+      <Container class1="services-wrapper-2 bg-light py-5">
         <div className="row">
           <div className="col-12 mb-3">
             <h3 className="section-heading">Diaqnostika</h3>
@@ -78,56 +45,39 @@ const Services = () => {
             <div className="check">
               <ul className="d-flex flex-column justify-content-center gap-15 ">
                 <li className="d-flex gap-10">
-                  <img
-                    src="images/check.svg"
-                    className="img-fluid mb-2"
-                    alt=""
-                  />
+                  <GiCheckMark className="fs-4" />
+
                   <p className="mb-0">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus magnam commodi eos cupiditate fugiat, Et,
-                    obcaecati!
+                    Bizim diaqnostika xidmətimiz müxtəlif səviyyədə təcrübəli və
+                    sertifikatlı mütəxəssislərdən ibarətdir.
                   </p>
                 </li>
                 <li className="d-flex gap-10">
-                  <img
-                    src="images/check.svg"
-                    className="img-fluid mb-0"
-                    alt=""
-                  />
+                  <GiCheckMark className="fs-4" />
                   <p className="mb-0">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus magnam commodi eos cupiditate fugiat, Et,
-                    obcaecati!
+                    Avtomobilinizin bütün diaqnostika təhlil və testləri müasir
+                    və sərfəli avadanlıqlarımızla həyata keçirilir.
                   </p>
                 </li>
                 <li className="d-flex gap-10">
-                  <img
-                    src="images/check.svg"
-                    className="img-fluid mb-0"
-                    alt=""
-                  />
+                  <GiCheckMark className="fs-2" />
                   <p className="mb-0">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus magnam commodi eos cupiditate fugiat, Et,
-                    obcaecati!
+                    Diaqnostika xidmətimiz sizə avtomobilinizin sağlam və
+                    effektiv işləməsinin təminatı verir və problemlərin daha
+                    böyük problemlərə çevrilməsinin qarşısını alır.
                   </p>
                 </li>
                 <li className="d-flex gap-10">
-                  <img
-                    src="images/check.svg"
-                    className="img-fluid mb-0"
-                    alt=""
-                  />
+                  <GiCheckMark className="fs-3" />
                   <p className="mb-0">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus magnam commodi eos cupiditate fugiat, Et,
-                    obcaecati!
+                    Əl ilə diaqnostika: Bu növ diaqnostika, avtomobilin
+                    hissələrindəki səhvləri aşkar etmək üçün əl ilə tədqiqat və
+                    yoxlama prosesidir.
                   </p>
                 </li>
               </ul>
               <div className="d-flex click mb-1">
-                <Link to="/login" className="d-flex gap-15 ">
+                <Link to="/diagnostic" className="d-flex gap-15 ">
                   <button class="custom-btn btn-3">
                     <span>Bizə Qoşul</span>
                   </button>
@@ -155,56 +105,38 @@ const Services = () => {
             <div className="check">
               <ul className="d-flex flex-column justify-content-center gap-15">
                 <li className="d-flex gap-10">
-                  <img
-                    src="images/check.svg"
-                    className="img-fluid mb-2"
-                    alt=""
-                  />
+                  <GiCheckMark className="fs-4" />
                   <p className="mb-0">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus magnam commodi eos cupiditate fugiat, Et,
-                    obcaecati!
+                    Bizim keyfiyyətli yağ dəyişim xidmətimiz avtomobilinizin
+                    mühərrik sisteminin sağlamlığını təmin edir.
                   </p>
                 </li>
                 <li className="d-flex gap-10">
-                  <img
-                    src="images/check.svg"
-                    className="img-fluid mb-0"
-                    alt=""
-                  />
+                  <GiCheckMark className="fs-4" />
                   <p className="mb-0">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus magnam commodi eos cupiditate fugiat, Et,
-                    obcaecati!
+                    Yağ dəyişimi zamanı tətbiq etdiyimiz orijinal yağlar və
+                    filtrlər avtomobilinizin ömrünü artırır.
                   </p>
                 </li>
                 <li className="d-flex gap-10">
-                  <img
-                    src="images/check.svg"
-                    className="img-fluid mb-0"
-                    alt=""
-                  />
+                  <GiCheckMark className="fs-4" />
                   <p className="mb-0">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus magnam commodi eos cupiditate fugiat, Et,
-                    obcaecati!
+                    Ekspert kadromuz və müasir avadanlıqlarımız vasitəsi ilə yağ
+                    dəyişimi prosesi tez, sərfəli və dəqiqliklə həyata
+                    keçirilir.
                   </p>
                 </li>
                 <li className="d-flex gap-10">
-                  <img
-                    src="images/check.svg"
-                    className="img-fluid mb-0"
-                    alt=""
-                  />
+                  <GiCheckMark className="fs-2" />
                   <p className="mb-0">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus magnam commodi eos cupiditate fugiat, Et,
-                    obcaecati!
+                    Təklif etdiyimiz yağ dəyişim paketləri ilə avtomobilinizin
+                    əsas baxımının həyata keçirilməsi ilə birlikdə daha böyük
+                    keyfiyyət və performans əldə edə bilərsiniz.
                   </p>
                 </li>
               </ul>
               <div className="click mb-1">
-                <Link to="/login" className="d-flex gap-15">
+                <Link to="/lubrication" className="d-flex gap-15">
                   <button class="custom-btn btn-3">
                     <span>Bizə Qoşul</span>
                   </button>
@@ -232,56 +164,38 @@ const Services = () => {
             <div className="check">
               <ul className="d-flex flex-column justify-content-center gap-15">
                 <li className="d-flex gap-10">
-                  <img
-                    src="images/check.svg"
-                    className="img-fluid mb-2"
-                    alt=""
-                  />
+                  <GiCheckMark className="fs-4" />
                   <p className="mb-0">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus magnam commodi eos cupiditate fugiat, Et,
-                    obcaecati!
+                    Bizim ekspert kadromuz avtomobilinizin problemini tez və
+                    effektiv şəkildə həll edəcək.
                   </p>
                 </li>
                 <li className="d-flex gap-10">
-                  <img
-                    src="images/check.svg"
-                    className="img-fluid mb-0"
-                    alt=""
-                  />
+                  <GiCheckMark className="fs-4" />
                   <p className="mb-0">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus magnam commodi eos cupiditate fugiat, Et,
-                    obcaecati!
+                    Avtomobilinizin bütün təmir işləri müxtəlif səviyyədə
+                    təcrübəli ustalar tərəfindən həyata keçirilir.
                   </p>
                 </li>
                 <li className="d-flex gap-10">
-                  <img
-                    src="images/check.svg"
-                    className="img-fluid mb-0"
-                    alt=""
-                  />
+                  <GiCheckMark className="fs-4" />
                   <p className="mb-0">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus magnam commodi eos cupiditate fugiat, Et,
-                    obcaecati!
+                    Təmir işlərinin bütün mərhələlərində orijinal ehtiyya
+                    hissələri tətbiq edilir.
                   </p>
                 </li>
                 <li className="d-flex gap-10">
-                  <img
-                    src="images/check.svg"
-                    className="img-fluid mb-0"
-                    alt=""
-                  />
+                  <GiCheckMark className="fs-1" />
                   <p className="mb-0">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus magnam commodi eos cupiditate fugiat, Et,
-                    obcaecati!
+                    Məqsədimiz sizi təsdiqləmək və avtomobilinizin yenidən
+                    işləməyə başlaması üçün güvən verərək, təmir və bakım
+                    işlərinin hörmətli müştərilərimiz üçün çox vacib olduğunu
+                    nümayiş etdirməkdir.
                   </p>
                 </li>
               </ul>
               <div className="click mb-1">
-                <Link to="/login" className="d-flex gap-15">
+                <Link to="/repair" className="d-flex gap-15">
                   <button class="custom-btn btn-3">
                     <span>Bizə Qoşul</span>
                   </button>

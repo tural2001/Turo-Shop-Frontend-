@@ -20,6 +20,9 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import SingleProduct from './pages/SingleProduct';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
+import Diagnostic from './pages/Diagnostic';
+import Lubrication from './pages/Lubrication';
+import Repair from './pages/Repair';
 
 function App() {
   return (
@@ -35,6 +38,9 @@ function App() {
             <Route path="cart" element={<Cart />} />
             <Route path="checkout" element={<Checkout />} />
             <Route path="services" element={<Services />} />
+            <Route path="diagnostic" element={<Diagnostic />} />
+            <Route path="lubrication" element={<Lubrication />} />
+            <Route path="repair" element={<Repair />} />
             <Route path="compare-product" element={<CompareProduct />} />
             <Route path="wishlist" element={<Wishlist />} />
             <Route path="login" element={<Login />} />

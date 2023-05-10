@@ -33,15 +33,20 @@ const Header = () => {
       </header>
       <header className="header-upper head py-3">
         <div className="container-xxl">
-          <div className="row align-items-center">
-            <div className="col-2 mt-3">
-              <h2>
+          <div className="row  align-items-center justify-content-between">
+            <div className="col-3  d-flex justify-content-space align-items-center ">
+              <img
+                src="https://api.logo.com/api/v2/images?logo=logo_27bcec54-c41d-4a85-a096-3c43dc1a1c48&format=webp&margins=0&quality=60&width=500&background=transparent&u=1683752902"
+                alt=""
+                width={100}
+              />
+              <h2 className="mt-3">
                 <Link to="/" className="text-white first-link">
                   Turo Store
                 </Link>
               </h2>
             </div>
-            <div className="col-5">
+            <div className="col-3">
               <div
                 className="input-group"
                 style={{ display: 'flex', alignItems: 'center' }}

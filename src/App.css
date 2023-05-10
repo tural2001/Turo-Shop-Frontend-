@@ -343,6 +343,9 @@ footer .input-group img {
 /* Categories section ends here */
 
 /* Blog Part */
+.Ccarousel {
+  width: 100px;
+}
 .blogs {
   display: flex;
   flex: auto;
@@ -581,10 +584,6 @@ footer .input-group img {
 
 /* Contact Page */
 
-.contact-wrapper {
-  background-image: url(https://marketplace.canva.com/EAD2962NKnQ/2/0/1600w/canva-rainbow-gradient-pink-and-purple-virtual-background-_Tcjok-d9b4.jpg);
-}
-
 .contact-inner-wrapper {
   padding: 20px 20px;
   border-radius: 15px;
@@ -629,17 +628,17 @@ footer .input-group img {
   text-shadow: 0 0 5px #03e9f4;
 }
 
-.services-wrapper-1 {
-  background-image: url(https://img.freepik.com/free-vector/dark-gradient-background-with-copy-space_53876-99548.jpg);
-  background-size: cover;
-  margin: 0;
+.servic {
+  position: absolute;
+  width: 100%;
+  height: 250px;
 }
 
 .logo b {
   font-family: 'Dancing Script', cursive;
   font-size: 4rem;
-  color: rgb(245, 213, 213);
-  text-shadow: 0 0 5px #ff4444;
+  color: rgb(15, 13, 13);
+  text-shadow: 0 0 5px #f4f1eb;
   overflow: hidden;
 }
 .logo b span {
@@ -654,7 +653,7 @@ footer .input-group img {
     text-shadow: inherit;
   }
   79% {
-    color: #333333;
+    color: #d7cfcf;
   }
   80% {
     text-shadow: none;
@@ -664,7 +663,7 @@ footer .input-group img {
     text-shadow: inherit;
   }
   82% {
-    color: #333;
+    color: #ded7d7;
     text-shadow: none;
   }
   83% {
@@ -672,7 +671,7 @@ footer .input-group img {
     text-shadow: inherit;
   }
   92% {
-    color: #333;
+    color: #dbd7d7;
     text-shadow: none;
   }
   92.5% {
@@ -686,8 +685,10 @@ footer .input-group img {
 }
 
 .services-wrapper-2 {
-  /* background-color: white; */
   background-size: cover;
+}
+.services-wrapper-2 .col-8 {
+  border-radius: 2rem;
 }
 
 .services-wrapper-2 .check img {
@@ -695,7 +696,7 @@ footer .input-group img {
 }
 
 .check {
-  border-bottom: 1px solid var(--color-777777);
+  border-bottom: 1px solid rgb(223, 220, 216);
   /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
 }
 .click {
@@ -729,18 +730,29 @@ footer .input-group img {
 }
 .compare-product-card .cross,
 .wishlist-card .cross {
-  top: 15px;
-  right: 15px;
-  width: 20px;
+  top: -6rem;
+  right: 1rem;
+  width: 1.5rem;
   padding: 3px;
   cursor: pointer;
 }
 .product-card-image img,
 .wishlist-card img {
-  width: 80%;
+  width: 15rem;
+  height: 18rem !important;
   align-items: center;
   height: auto;
 }
+.wishlist-card {
+  max-width: 20rem;
+  max-height: 30rem;
+}
+
+.wishlist-card .py-3 {
+  border-top: 1px solid;
+  background-color: white;
+}
+
 .compare-product-details h5.title,
 .wishlist-card h5.title {
   font-size: 15px;
@@ -1083,15 +1095,12 @@ footer .input-group img {
 }
 
 /* Button end */
-
-.bg-image {
-  background: inherit;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-.bg {
-  background-image: url(https://marketplace.canva.com/EAD2962NKnQ/2/0/1600w/canva-rainbow-gradient-pink-and-purple-virtual-background-_Tcjok-d9b4.jpg);
+.auth .col-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 7rem;
+  border-right: 1px solid #1c1c1c;
 }
 
 .error {

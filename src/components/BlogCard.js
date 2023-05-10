@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import {
   CCardText,
   CCarousel,
@@ -22,25 +22,27 @@ const BlogCard = (props) => {
 
   return (
     <div className="col-12 d-flex justify-content-center">
-      <CCarousel controls indicators className="w-50">
+      <CCarousel controls indicators dark className="w-50">
         {Array.isArray(data) &&
           data.map((item, index) => {
             return (
               <CCarouselItem key={index}>
                 <CImage
-                  className="d-block w-100"
+                  className="d-block"
                   src={
                     item?.images
                       ? item.images
                       : 'https://i0.wp.com/learn.onemonth.com/wp-content/uploads/2017/08/1-10.png?fit=845%2C503&ssl=1'
                   }
-                  alt="slide 1"
+                  alt={{ key: { index } }}
+                  width={200}
+                  height={350}
                 />
                 <CCarouselCaption className="d-none d-md-block">
-                  <h5>{item?.title}</h5>
+                  {/* <h5>{item?.title}</h5> */}
                   <CCardText>
                     {!showText[index]
-                      ? item?.description.substring(0, 10) + '...'
+                      ? item?.description.substring(0, 0) + '...'
                       : item?.description}
                   </CCardText>
                   <Button variant="primary" onClick={() => handleClick(index)}>

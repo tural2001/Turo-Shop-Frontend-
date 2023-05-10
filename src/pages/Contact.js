@@ -82,15 +82,16 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="col-6 mt-4">
+          <div className="col-6  d-flex  align-items-center">
             <iframe
               title="Google Maps"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96970.1375653932!2d49.56104081012017!3d40.578762149797164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x403096dcd0923f6b%3A0xdf4767c369322a71!2zU3VtcWF5xLF0!5e0!3m2!1str!2saz!4v1678136232703!5m2!1str!2saz"
               width="600"
               height="450"
-              className="border-0 w-100"
+              className="w-100"
               allowFullScreen="auto"
               loading="lazy"
+              style={{ borderRadius: '30px' }}
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>

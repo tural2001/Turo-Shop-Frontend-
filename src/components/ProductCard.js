@@ -17,8 +17,6 @@ const ProductCard = (props) => {
     dispatch(addToWishlist(id));
   };
 
-  console.log(data);
-
   return (
     <>
       {data?.map((item, index) => {
@@ -55,7 +53,11 @@ const ProductCard = (props) => {
                   className="img-fluid"
                   alt="product"
                 />
-                <img src={item?.images} className="img-fluid" alt="product" />
+                <img
+                  src={item?.images[0]?.url}
+                  className="img-fluid"
+                  alt="product"
+                />
               </div>
               <div className="product-details">
                 <h6 className="brand">{item?.brand}</h6>
@@ -63,7 +65,7 @@ const ProductCard = (props) => {
                 <ReactStars
                   count={5}
                   size={24}
-                  value={item?.totalrating.toString()}
+                  value={parseFloat(item?.totalrating)}
                   edit={false}
                   activeColor="#ffd700"
                 />

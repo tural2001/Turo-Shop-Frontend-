@@ -51,12 +51,15 @@ const Wishlist = () => {
                           : 'camera.jpg'
                       }
                       alt="disk"
-                      className="img-fluid w-100 d-block mx-auto"
-                      width={130}
+                      className="img-fluid d-block mx-auto"
                     />
                   </div>
                   <div className="py-3 px-3">
                     <h5 className="title">{item?.title}</h5>
+                    <h6
+                      className="description fw-lighter"
+                      dangerouslySetInnerHTML={{ __html: item?.description }}
+                    ></h6>
                     <h6 className="price mb-3">{item?.price}</h6>
                   </div>
                 </div>

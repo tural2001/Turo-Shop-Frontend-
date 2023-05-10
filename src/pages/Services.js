@@ -8,24 +8,26 @@ const Services = () => {
   return (
     <>
       <Meta title={'Xidmətlər'} />
-      <Container class1="services-wrapper-1  py-3">
+      <img src="images/servic.jpeg" alt="" className="servic" />
+
+      <Container class1="services-wrapper-1 bg-dark  py-3">
         <div className="row">
-          <div className="col-12">
+          <div className="col-12 mt-5">
             <div className="logo d-flex justify-content-center animate__animated animate__flipInX">
-              <b>
+              <b className="mt-5">
                 Tu<span>ro </span>Ser<span>vi</span>ce
               </b>
             </div>
           </div>
-          <div className="col-12">
+          {/* <div className="col-12">
             <p className="d-flex justify-content-center mt-3 animate__heartBeat">
               “Biz sizin bütün avtomobil ehtiyaclarınız üçün buradayıq,
               təhlükəsiz və rahat gediş üçün bizə etibar edin!
             </p>
-          </div>
+          </div> */}
         </div>
       </Container>
-      <Container class1="services-wrapper-2 bg-light py-5">
+      <Container class1="services-wrapper-2 mt-5 bg-light py-5">
         <div className="row">
           <div className="col-12 mb-3">
             <h3 className="section-heading">Diaqnostika</h3>
@@ -41,8 +43,8 @@ const Services = () => {
               />
             </div>
           </div>
-          <div className="col-8 py-2">
-            <div className="check">
+          <div className="col-8 bg-white py-2">
+            <div className="check mt-3">
               <ul className="d-flex flex-column justify-content-center gap-15 ">
                 <li className="d-flex gap-10">
                   <GiCheckMark className="fs-4" />
@@ -101,8 +103,8 @@ const Services = () => {
               />
             </div>
           </div>
-          <div className="col-8 py-2">
-            <div className="check">
+          <div className="col-8 bg-white py-2">
+            <div className="check mt-3">
               <ul className="d-flex flex-column justify-content-center gap-15">
                 <li className="d-flex gap-10">
                   <GiCheckMark className="fs-4" />
@@ -160,8 +162,8 @@ const Services = () => {
               />
             </div>
           </div>
-          <div className="col-8 py-2">
-            <div className="check">
+          <div className="col-8 bg-white py-2">
+            <div className="check mt-3">
               <ul className="d-flex flex-column justify-content-center gap-15">
                 <li className="d-flex gap-10">
                   <GiCheckMark className="fs-4" />

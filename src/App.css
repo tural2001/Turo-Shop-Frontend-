@@ -415,7 +415,7 @@ footer .input-group img {
   display: none;
 }
 .product-card:hover .action-bar {
-  right: 0px;
+  right: 1rem;
 }
 
 .product-image img {
@@ -453,6 +453,23 @@ footer .input-group img {
   width: 20px;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+}
+
+button .fc-like {
+  display: none;
+}
+
+button:hover .fc-like {
+  display: inline-block;
+}
+
+button:hover .ai-outline-heart {
+  display: none;
+}
+
 /* Product Part ends here */
 
 /* Special Product */
@@ -462,8 +479,7 @@ footer .input-group img {
   background-color: white;
 }
 .special-product-card img {
-  width: 200px;
-  padding-right: 20px;
+  width: 15rem;
 }
 
 /* Special Product ends here */
@@ -617,29 +633,27 @@ footer .input-group img {
 
 /* Services Page */
 .services-wrapper-1 {
-  max-height: 200px;
   overflow: hidden;
+  background: linear-gradient(to bottom, rgb(2, 42, 58), rgb(1, 8, 13));
 }
 
 .services-wrapper-1 p {
   transition: 0.5s;
   font-size: 20px;
   color: #fff;
-  text-shadow: 0 0 5px #03e9f4;
+  text-shadow: 0 0 5px #16a1a6;
+  margin: 0px !important;
+  overflow: hidden;
 }
-
-.servic {
-  position: absolute;
-  width: 100%;
-  height: 250px;
+.logo {
+  overflow: hidden;
 }
 
 .logo b {
   font-family: 'Dancing Script', cursive;
   font-size: 4rem;
-  color: rgb(15, 13, 13);
-  text-shadow: 0 0 5px #f4f1eb;
-  overflow: hidden;
+  color: rgb(111, 111, 108);
+  text-shadow: 0 0 5px #222222;
 }
 .logo b span {
   animation: blink linear infinite 2s;
@@ -653,7 +667,7 @@ footer .input-group img {
     text-shadow: inherit;
   }
   79% {
-    color: #d7cfcf;
+    color: #f6f2f2;
   }
   80% {
     text-shadow: none;
@@ -744,8 +758,8 @@ footer .input-group img {
   height: auto;
 }
 .wishlist-card {
-  max-width: 20rem;
-  max-height: 30rem;
+  width: 20rem;
+  height: 30rem;
 }
 
 .wishlist-card .py-3 {
@@ -920,9 +934,9 @@ footer .input-group img {
   border: 1px solid rgba(0, 0, 0, 0.25);
 }
 .main-product-image .js-image-zoom__zoomed-image {
-  left: 160px !important;
+  left: 160px;
   padding: 10px;
-  background-color: white;
+  /* background-color: white; */
   border-radius: 10px;
   z-index: 1000;
 }
@@ -969,6 +983,7 @@ footer .input-group img {
 /* main product page end */
 
 /* Cart page */
+
 .cart-header,
 .cart-data {
   border-bottom: 1px solid #eaeaea;
@@ -1021,79 +1036,28 @@ footer .input-group img {
 /* Shipping page end */
 
 /* Button */
-.btn-3 {
-  background: rgb(0, 172, 238);
-  background: linear-gradient(
-    0deg,
-    rgb(96, 190, 228) 0%,
-    rgb(102, 167, 232) 100%
-  );
-  width: 130px;
-  height: 40px;
-  line-height: 42px;
-  padding: 0;
-  border: none;
+.btn-contact {
+  background-color: white;
+  border: 1px solid rgb(7, 5, 0);
 }
-.btn-3 span {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
+.btn-contact:hover {
+  background-color: #1140c1;
+  color: white;
+  border: 1px solid white;
+  transition: 0.3s;
 }
-.btn-3:before,
-.btn-3:after {
-  position: absolute;
-  content: '';
-  right: 0;
-  top: 0;
-  background: rgba(2, 126, 251, 1);
-  transition: all 0.3s ease;
+.custom-btn {
+  background-color: white;
+  border: 1px solid rgb(0, 0, 0);
+  padding: 0.6rem;
+  border-radius: 1rem;
 }
-.btn-3:before {
-  height: 0%;
-  width: 2px;
+.custom-btn:hover {
+  background-color: #f4e50f;
+  color: rgb(0, 0, 0);
+  border: 1px solid #f4e50f;
+  transition: 0.4s;
 }
-.btn-3:after {
-  width: 0%;
-  height: 2px;
-}
-.btn-3:hover {
-  background: transparent;
-  box-shadow: none;
-}
-.btn-3:hover:before {
-  height: 100%;
-}
-.btn-3:hover:after {
-  width: 100%;
-}
-.btn-3 span:hover {
-  color: rgba(2, 126, 251, 1);
-}
-.btn-3 span:before,
-.btn-3 span:after {
-  position: absolute;
-  content: '';
-  left: 0;
-  bottom: 0;
-  background: rgba(2, 126, 251, 1);
-  transition: all 0.3s ease;
-}
-.btn-3 span:before {
-  width: 2px;
-  height: 0%;
-}
-.btn-3 span:after {
-  width: 0%;
-  height: 2px;
-}
-.btn-3 span:hover:before {
-  height: 100%;
-}
-.btn-3 span:hover:after {
-  width: 100%;
-}
-
 /* Button end */
 .auth .col-4 {
   display: flex;

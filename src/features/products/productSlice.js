@@ -2,10 +2,21 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { productService } from './productService';
 
 export const getAllProducts = createAsyncThunk(
-  'product/get-product',
+  'product/get-products',
   async (thunkAPI) => {
     try {
       return await productService.getProducts();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const getAProduct = createAsyncThunk(
+  'product/getAProduct',
+  async (id, thunkAPI) => {
+    try {
+      return await productService.getProduct(id);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -62,6 +73,22 @@ export const productSlice = createSlice({
         state.addToWishlist = action.payload;
       })
       .addCase(addToWishlist.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isSuccess = false;
+        state.message = action.error;
+      })
+      .addCase(getAProduct.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getAProduct.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+        state.singleproduct = action.payload;
+        state.message = 'Catch a new';
+      })
+      .addCase(getAProduct.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.isSuccess = false;

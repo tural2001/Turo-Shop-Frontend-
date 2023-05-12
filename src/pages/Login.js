@@ -1,19 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   MDBContainer,
-  MDBTabs,
-  MDBTabsItem,
-  MDBTabsLink,
   MDBTabsContent,
   MDBTabsPane,
-  MDBBtn,
-  MDBIcon,
-  MDBInput,
   MDBCheckbox,
 } from 'mdb-react-ui-kit';
-import Meta from '../components/Meta';
 import { Link } from 'react-router-dom';
-import Container from '../components/Container';
 import CustomInput from '../components/CustomInput';
 import { useFormik } from 'formik';
 import * as yup from 'yup';

@@ -8,26 +8,52 @@ const Services = () => {
   return (
     <>
       <Meta title={'Xidmətlər'} />
-      <img src="images/servic.jpeg" alt="" className="servic" />
 
-      <Container class1="services-wrapper-1 bg-dark  py-3">
-        <div className="row">
-          <div className="col-12 mt-5">
-            <div className="logo d-flex justify-content-center animate__animated animate__flipInX">
-              <b className="mt-5">
-                Tu<span>ro </span>Ser<span>vi</span>ce
-              </b>
-            </div>
-          </div>
-          {/* <div className="col-12">
-            <p className="d-flex justify-content-center mt-3 animate__heartBeat">
-              “Biz sizin bütün avtomobil ehtiyaclarınız üçün buradayıq,
-              təhlükəsiz və rahat gediş üçün bizə etibar edin!
-            </p>
-          </div> */}
+      <div
+        className="services-wrapper-1 bg-dark"
+        style={{
+          position: 'relative',
+        }}
+      >
+        <div className="col-6">
+          <img
+            src="images/servic.jpeg"
+            style={{
+              width: '100%',
+              height: 400,
+              opacity: 0.6,
+            }}
+            alt=""
+          />
         </div>
-      </Container>
-      <Container class1="services-wrapper-2 mt-5 bg-light py-5">
+        <div
+          className="logo  text-center"
+          style={{
+            position: 'absolute',
+            top: '30%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}
+        >
+          <b className="mt-5">
+            Tu<span>ro </span>Ser<span>vi</span>ce
+          </b>
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            top: '60%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}
+        >
+          <p className="text-center mt-3">
+            “Biz sizin bütün avtomobil ehtiyaclarınız üçün buradayıq, təhlükəsiz
+            və rahat gediş üçün bizə etibar edin!
+          </p>
+        </div>
+      </div>
+      <Container class1="services-wrapper-2 py-5  bg-light">
         <div className="row">
           <div className="col-12 mb-3">
             <h3 className="section-heading">Diaqnostika</h3>
@@ -80,7 +106,7 @@ const Services = () => {
               </ul>
               <div className="d-flex click mb-1">
                 <Link to="/diagnostic" className="d-flex gap-15 ">
-                  <button class="custom-btn btn-3">
+                  <button class="custom-btn">
                     <span>Bizə Qoşul</span>
                   </button>
                 </Link>
@@ -139,7 +165,7 @@ const Services = () => {
               </ul>
               <div className="click mb-1">
                 <Link to="/lubrication" className="d-flex gap-15">
-                  <button class="custom-btn btn-3">
+                  <button class="custom-btn">
                     <span>Bizə Qoşul</span>
                   </button>
                 </Link>
@@ -198,7 +224,7 @@ const Services = () => {
               </ul>
               <div className="click mb-1">
                 <Link to="/repair" className="d-flex gap-15">
-                  <button class="custom-btn btn-3">
+                  <button class="custom-btn">
                     <span>Bizə Qoşul</span>
                   </button>
                 </Link>

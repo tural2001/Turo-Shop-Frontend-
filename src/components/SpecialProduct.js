@@ -3,14 +3,15 @@ import ReactStars from 'react-rating-stars-component';
 import { Link } from 'react-router-dom';
 
 const SpecialProduct = (props) => {
-  const { title, brand, price, quantity, totalrating, sold } = props;
+  const { title, brand, price, quantity, totalrating, sold, images, id } =
+    props;
 
   return (
     <div className="col-4 mb-3">
-      <div className="special-product-card">
-        <div className="d-flex justify-content-between">
-          <div>
-            <img src="images/oil.jpeg" className="img-fluid" alt="" />
+      <div className="special-product-card py-3">
+        <div className="d-flex justify-content-space">
+          <div className="d-flex justify-content-center py-5">
+            <img src={images[0].url} className="img-fluid" alt="" />
           </div>
           <div className="special-product-content">
             <h5 className="brand">{brand}</h5>
@@ -41,17 +42,17 @@ const SpecialProduct = (props) => {
                   <div
                     className="progress-bar"
                     role="progressbar"
-                    style={{ width: (sold / (quantity + sold)) * 100 + '%' }}
+                    style={{
+                      width: (sold / (quantity + sold)) * 100 + '%',
+                    }}
                     aria-valuenow={sold}
                     aria-valuemin={0}
                     aria-valuemax={quantity + sold}
                   ></div>
                 </div>
               </div>
-              <Link>
-                <button className="btn btn-warning btn-sm">
-                  Səbətə əlavə et
-                </button>
+              <Link className="btn btn-warning btn-sm" to={'/product/' + id}>
+                Səbətə əlavə et
               </Link>
             </div>
           </div>

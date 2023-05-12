@@ -2,18 +2,43 @@ import React, { useState } from 'react';
 import Meta from '../components/Meta';
 import ProductCard from '../components/ProductCard';
 import ReactStars from 'react-rating-stars-component';
-import ReactImageZoom from 'react-image-zoom';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { TbGitCompare } from 'react-icons/tb';
 import Container from '../components/Container';
+import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getAProduct } from '../features/products/productSlice';
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
+import Color from '../components/Color';
+import { addProdToCart } from '../features/user/userSlice';
 
 const SingleProduct = () => {
-  const props = {
-    width: 600,
-    height: 500,
-    zoomWidth: 500,
-    img: 'https://images.cars.com/cldstatic/wp-content/uploads/cadillac-escalade-2021-20.JPG',
+  const [color, setColor] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+  console.log(quantity);
+  const location = useLocation();
+  const getProductId = location.pathname.split('/')[2];
+  const productState = useSelector((state) => state.product?.singleproduct);
+  // const cartState = useSelector((state) => state.auth);
+
+  console.log(productState);
+
+  const uploadCart = () => {
+    dispatch(
+      addProdToCart({
+        productId: productState?._id,
+        quantity,
+        price: productState?.price,
+      })
+    );
   };
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAProduct(getProductId));
+  }, [dispatch, getProductId]);
 
   const [orderedProduct] = useState(true);
   const copyToClipboard = (text) => {
@@ -33,48 +58,42 @@ const SingleProduct = () => {
           <div className="col-6">
             <div className="main-product-image">
               <div>
-                <ReactImageZoom {...props} />
+                <Zoom>
+                  <img
+                    src={
+                      productState?.images[0].url
+                        ? productState?.images[0].url
+                        : null
+                    }
+                    width="100"
+                    alt=""
+                  />
+                </Zoom>
               </div>
             </div>
             <div className="other-product-images d-flex flex-wrap gap-15">
-              <div>
-                <img
-                  src="https://www.seat.sg/content/dam/public/seat-website/car-terms/v/ventilated-disc-brakes/seat-ventilated-disc-brakes.jpg"
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src="https://www.seat.sg/content/dam/public/seat-website/car-terms/v/ventilated-disc-brakes/seat-ventilated-disc-brakes.jpg"
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src="https://www.seat.sg/content/dam/public/seat-website/car-terms/v/ventilated-disc-brakes/seat-ventilated-disc-brakes.jpg"
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src="https://www.seat.sg/content/dam/public/seat-website/car-terms/v/ventilated-disc-brakes/seat-ventilated-disc-brakes.jpg"
-                  alt=""
-                />
-              </div>
+              {Array.isArray(productState) &&
+                productState.map((item, index) => {
+                  return (
+                    <div key={index}>
+                      <img src={item?.url} alt="" />
+                    </div>
+                  );
+                })}
             </div>
           </div>
           <div className="col-6">
             <div className="main-product-details">
               <div className="border-bottom">
-                <h3 className="title">R18 disk vossen</h3>
+                <h3 className="title">{productState?.title}</h3>
               </div>
               <div className="border-bottom py-3">
-                <p className="price">100azn</p>
+                <p className="price">{productState?.price} Azn</p>
                 <div className="d-flex align-items-center gap-10">
                   <ReactStars
                     count={5}
                     size={24}
-                    value={4}
+                    value={productState?.totalrating}
                     edit={false}
                     activeColor="#ffd700"
                   />
@@ -86,44 +105,47 @@ const SingleProduct = () => {
               </div>
               <div className="border-bottom py-3">
                 <div className="d-flex gap-10 align-items-center my-2">
-                  <h3 className="product-heading">Type:</h3>
-                  <p className="product-data">Gsc</p>
+                  <h3 className="product-heading">Brend:</h3>
+                  <p className="product-data">{productState?.brand}</p>
                 </div>
                 <div className="d-flex gap-10 align-items-center my-2">
-                  <h3 className="product-heading">Brand:</h3>
-                  <p className="product-data">Gsc</p>
+                  <h3 className="product-heading">Kategoriya:</h3>
+                  <p className="product-data">{productState?.category}</p>
                 </div>
                 <div className="d-flex gap-10 align-items-center my-2">
-                  <h3 className="product-heading">Category:</h3>
-                  <p className="product-data">Gsc</p>
+                  <h3 className="product-heading">Etiket:</h3>
+                  <p className="product-data">{productState?.tags}</p>
                 </div>
                 <div className="d-flex gap-10 align-items-center my-2">
-                  <h3 className="product-heading">Tags:</h3>
-                  <p className="product-data">Gsc</p>
+                  <h3 className="product-heading">Reng:</h3>
+                  <Color colorData={productState?.color} />
                 </div>
                 <div className="d-flex gap-10 align-items-center my-2">
-                  <h3 className="product-heading">Availablity:</h3>
-                  <p className="product-data">In Stock</p>
+                  <h3 className="product-heading">Mövcud:</h3>
+                  <p className="product-data">
+                    {productState?.quantity !== undefined
+                      ? 'Stokda var'
+                      : 'Stokda bitib'}
+                  </p>
                 </div>
-                <div className="d-flex gap-10 flex-column mt-2 mb-3">
-                  <h3 className="product-heading">Size:</h3>
-                  <div className="d-flex flex-wrap gap-15">
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      18
-                    </span>
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      19
-                    </span>
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      21
-                    </span>
-                    <span className="badge border border-1 bg-white text-dark border-secondary">
-                      22
-                    </span>
-                  </div>
-                </div>
+                {Array.isArray(productState) &&
+                  productState.map((item, index) => {
+                    return (
+                      <div className="d-flex gap-10 flex-column mt-2 mb-3">
+                        <h3 className="product-heading">Ölçü:</h3>
+                        <div className="d-flex flex-wrap gap-15">
+                          <span
+                            className="badge border border-1 bg-white text-dark border-secondary"
+                            key={index}
+                          >
+                            {productState?.size}
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })}
                 <div className="d-flex gap-30  flex-row mt-2 mb-3">
-                  <h3 className="product-heading mt-2">Quantity:</h3>
+                  <h3 className="product-heading mt-2">Miqdar:</h3>
                   <div className="">
                     <input
                       type="number"
@@ -132,11 +154,19 @@ const SingleProduct = () => {
                       max={10}
                       className="form-control"
                       id=""
+                      onChange={(e) => setQuantity(e.target.value)}
+                      value={quantity}
                     />
                   </div>
                   <div className="d-flex align-items-center gap-30">
-                    <button className="" type="submit">
-                      Add to Card
+                    <button
+                      onClick={() => {
+                        uploadCart();
+                      }}
+                      className=""
+                      type="submit"
+                    >
+                      Səbətə əlavə et
                     </button>
                     <button className="">Buy it now</button>
                   </div>
@@ -145,35 +175,36 @@ const SingleProduct = () => {
                   <div>
                     <a href="/">
                       <AiOutlineHeart className="fs-5 me-2" />
-                      Add to Compare
+                      Müqayisə et
                     </a>
                   </div>
                   <div>
                     <a href="/">
                       <TbGitCompare className="fs-5 me-2" />
-                      Add to Wishlist
+                      Bəyənilənlərə əlave et
                     </a>
                   </div>
                 </div>
                 <div className="d-flex gap-10 flex-column  my-3">
-                  <h3 className="product-heading">Shipping and Returns :</h3>
+                  <h3 className="product-heading">Çatdırılma və İadə :</h3>
                   <p className="product-data">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Velit voluptates incidunt reprehenderit, iusto voluptas
-                    adipisci
+                    Pulsuz Çatdırılma və Bütün məhsullara zəmanət! Məhsulları
+                    <br />
+                    <span className="text-dark text-bold">
+                      2-5 iş günü
+                    </span>{' '}
+                    ərzində çatdırırıq
                   </p>
                 </div>
                 <div className="d-flex gap-10 flex-column my-3">
-                  <h3 className="product-heading">Copy Product Link :</h3>
+                  <h3 className="product-heading">Məhsul Linkini Kopyala :</h3>
                   <a
                     href="#/"
                     onClick={() => {
-                      copyToClipboard(
-                        'https://staticimg.titan.co.in/Titan/Catalog/1805QM01_1.jpg?impolicy=pqmed&imwidth=640'
-                      );
+                      copyToClipboard(window.location.href);
                     }}
                   >
-                    Copy Product Link
+                    Məhsul Linkini Kopyala
                   </a>
                 </div>
               </div>
@@ -184,14 +215,12 @@ const SingleProduct = () => {
       <Container class1="description-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
-            <h4>Description</h4>
+            <h4>Açıqlama</h4>
             <div className="bg-white p-3">
-              <p className="">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-                consequuntur doloremque officiis perferendis voluptas velit quod
-                nisi, facilis officia ipsam earum odit et! Facere veniam, dicta
-                perferendis molestias distinctio eum.{' '}
-              </p>
+              <p
+                className=""
+                dangerouslySetInnerHTML={{ __html: productState?.description }}
+              ></p>
             </div>
           </div>
         </div>
@@ -252,7 +281,7 @@ const SingleProduct = () => {
               </div>
               <div className="reviews">
                 <div className="review">
-                  <h6 className="mb-0">Navdeepp</h6>
+                  <h6 className="mb-0">Tural</h6>
                   <div className="d-flex gap-10 align-items-center">
                     <ReactStars
                       count={5}
@@ -275,16 +304,34 @@ const SingleProduct = () => {
           </div>
         </div>
       </Container>
-      <Container class1="popular-wrapper py-5 home-wrapper-2">
+      {/* <Container class1="popular-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
             <h3 className="section-heading">Our popula product</h3>
           </div>
         </div>
         <div className="row">
-          <ProductCard />
+          {productState &&
+            productState.map((item, index) => {
+              if (item.tags === 'special') {
+                return (
+                  <SpecialProduct
+                    key={index}
+                    id={item?._id}
+                    item={item?.title}
+                    brand={item?.brand}
+                    price={item?.price}
+                    quantity={item?.quantity}
+                    totalrating={item?.totalrating.toString()}
+                    sold={item?.sold}
+                    images={item?.images[0]?.url}
+                  />
+                );
+              }
+              return null;
+            })}
         </div>
-      </Container>
+      </Container> */}
     </>
   );
 };

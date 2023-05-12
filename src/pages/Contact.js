@@ -5,8 +5,36 @@ import { AiOutlineHome } from 'react-icons/ai';
 import { BsFillTelephoneInboundFill } from 'react-icons/bs';
 import { BsFillEnvelopeFill } from 'react-icons/bs';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { createQuery } from '../features/contact/contactSlice';
+
+const contactSchema = yup.object({
+  name: yup.string().required('Name is Required'),
+  mobile: yup.number().required('Mobile is Required'),
+  comment: yup.string().required('Mobile is Required'),
+  email: yup
+    .string()
+    .email(' Email should be Valid')
+    .required('Email is Required'),
+});
 
 const Contact = () => {
+  const dispatch = useDispatch();
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      mobile: '',
+      comment: '',
+    },
+    validationSchema: contactSchema,
+    onSubmit: (values) => {
+      // alert(JSON.stringify(values));
+      dispatch(createQuery(values));
+    },
+  });
   return (
     <>
       <Meta title={'Əlaqə'} />
@@ -16,41 +44,72 @@ const Contact = () => {
             <div className="contact-inner-wrapper d-flex justify-content-between">
               <div>
                 <h3 className="contact-title mb-4">Əlaqə</h3>
-                <form action="" className="d-flex flex-column gap-15">
+                <form
+                  action=""
+                  onSubmit={formik.handleSubmit}
+                  className="d-flex flex-column gap-15"
+                >
                   <div>
                     <input
                       type="text"
                       className="form-control"
                       placeholder="Ad"
+                      name="name"
+                      value={formik.values.name}
+                      onChange={formik.handleChange('name')}
+                      onBluer={formik.handleBlur('name')}
                     />
+                  </div>
+                  <div className="error text-danger">
+                    {formik.touched.name && formik.errors.name}
                   </div>
                   <div>
                     <input
                       type="text"
                       className="form-control"
                       placeholder="Email"
+                      name="email"
+                      value={formik.values.email}
+                      onChange={formik.handleChange('email')}
+                      onBluer={formik.handleBlur('email')}
                     />
+                    <div className="error text-danger">
+                      {formik.touched.email && formik.errors.email}
+                    </div>
                   </div>
                   <div>
                     <input
                       type="text"
                       className="form-control"
                       placeholder="Telefon nömrəsi"
+                      name="mobile"
+                      value={formik.values.mobile}
+                      onChange={formik.handleChange('mobile')}
+                      onBluer={formik.handleBlur('mobile')}
                     />
+                    <div className="error text-danger">
+                      {formik.touched.mobile && formik.errors.mobile}
+                    </div>
                   </div>
                   <div>
                     <textarea
-                      name=""
                       id=""
                       className="w-100 form-control"
                       cols="30"
                       rows="4"
+                      name="comment"
                       placeholder="Şərh"
+                      value={formik.values.comment}
+                      onChange={formik.handleChange('comment')}
+                      onBluer={formik.handleBlur('comment')}
                     ></textarea>
+                    <div className="error text-danger">
+                      {formik.touched.comment && formik.errors.comment}
+                    </div>
                   </div>
                   <div>
-                    <button class="custom-btn btn-3">
-                      <span>Bizə Qoşul</span>
+                    <button type="submit" class="btn btn-contact">
+                      <span>Göndər</span>
                     </button>
                   </div>
                 </form>

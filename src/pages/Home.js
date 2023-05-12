@@ -1,25 +1,25 @@
 import React, { useEffect } from 'react';
 import Marquee from 'react-fast-marquee';
 import BlogCard from '../components/BlogCard';
-import ProductCard from '../components/ProductCard';
 import SpecialProduct from '../components/SpecialProduct';
 import Container from '../components/Container';
 import { services } from '../utils/Data';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllBlogs } from '../features/blogs/blogSlice';
-import { moment } from 'moment';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getAllProducts } from '../features/products/productSlice';
 import ReactStars from 'react-rating-stars-component';
 import prodcompare from '../images/prodcompare.svg';
 import view from '../images/view.svg';
 import addcart from '../images/add-cart.svg';
-import wish from '../images/wish.svg';
 import { addToWishlist } from '../features/products/productSlice';
+import { AiOutlineHeart } from 'react-icons/ai';
+import { FcLike } from 'react-icons/fc';
 
 const Home = () => {
   const blogState = useSelector((state) => state?.blog?.blog);
   const productState = useSelector((state) => state.product.product);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -136,26 +136,19 @@ const Home = () => {
           </div>
         </div>
       </Container>
-      <Container class1="featured-wrapper py-5 home-wrapper-2">
+      <Container class1="featured-wrapper  home-wrapper-2">
         <div className="row">
           <div className="col-12">
-            <h3 className="section-heading">Nümayiş etdirilən Məhsullar</h3>
+            <h3 className="section-heading py-5">
+              Nümayiş etdirilən Məhsullar
+            </h3>
           </div>
           {productState &&
             productState?.map((item, index) => {
-              if (item.tags === 'popular') {
+              if (item?.tags === 'popular') {
                 return (
                   <div key={index} className={'col-3'}>
-                    <Link
-                      // to={`${
-                      //   location.pathname === '/product'
-                      //     ? '/product/:id'
-                      //     : location.pathname === '/product/:id'
-                      //     ? '/product/:id'
-                      //     : ':id'
-                      // }`}
-                      className="product-card position-relative "
-                    >
+                    <div className="product-card position-relative ">
                       <div className="wishlist-icon position-absolute">
                         <button
                           className="border-0 bg-transparent"
@@ -163,7 +156,8 @@ const Home = () => {
                             addToWish(item?._id);
                           }}
                         >
-                          <img src={wish} alt="wishlist" />
+                          <AiOutlineHeart className="fs-4 ai-outline-heart" />
+                          <FcLike className="fs-4 fc-like" />
                         </button>
                       </div>
                       <div className="product-image">
@@ -197,24 +191,29 @@ const Home = () => {
                             <img src={prodcompare} alt="compare" />
                           </button>
                           <button className="border-0 bg-transparent">
-                            <img src={view} alt="view" />
+                            <img
+                              onClick={() => navigate('/product/' + item?._id)}
+                              src={view}
+                              alt="view"
+                            />
                           </button>
                           <button className="border-0 bg-transparent">
                             <img src={addcart} alt="addcart" />
                           </button>
                         </div>
                       </div>
-                    </Link>
+                    </div>
                   </div>
                 );
               }
+              return null;
             })}
         </div>
       </Container>
-      <Container class1="special-wrapper py-5 home-wrapper-2">
+      <Container class1="special-wrapper py-1 home-wrapper-2">
         <div className="row">
           <div className="col-12">
-            <h3 className="section-heading">Özəl Məhsullar</h3>
+            <h3 className="section-heading py-5">Özəl Məhsullar</h3>
           </div>
         </div>
         <div className="row">
@@ -224,15 +223,18 @@ const Home = () => {
                 return (
                   <SpecialProduct
                     key={index}
+                    id={item?._id}
                     item={item?.title}
                     brand={item?.brand}
                     price={item?.price}
                     quantity={item?.quantity}
                     totalrating={item?.totalrating.toString()}
                     sold={item?.sold}
+                    images={item?.images}
                   />
                 );
               }
+              return null;
             })}
         </div>
       </Container>
@@ -270,7 +272,7 @@ const Home = () => {
       <Container class1="blog-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
-            <h3 className="section-heading">Kampaniyalarımız</h3>
+            <h3 className="section-heading py-3">Kampaniyalarımız</h3>
           </div>
           {/* <div className="row">
             {Array.isArray() &&

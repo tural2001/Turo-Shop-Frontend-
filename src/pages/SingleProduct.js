@@ -5,25 +5,43 @@ import ReactStars from 'react-rating-stars-component';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { TbGitCompare } from 'react-icons/tb';
 import Container from '../components/Container';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getAProduct } from '../features/products/productSlice';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import Color from '../components/Color';
-import { addProdToCart } from '../features/user/userSlice';
+import { addProdToCart, getUserCart } from '../features/user/userSlice';
 
 const SingleProduct = () => {
   const [color, setColor] = useState(null);
   const [quantity, setQuantity] = useState(1);
-  console.log(quantity);
+  const [alreadyAdded, setAlreadyAdded] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const getProductId = location.pathname.split('/')[2];
-  const productState = useSelector((state) => state.product?.singleproduct);
-  // const cartState = useSelector((state) => state.auth);
+  const productState = useSelector((state) => state?.product?.singleproduct);
+  const cartState = useSelector((state) => state?.auth?.cartProducts);
 
   console.log(productState);
+  console.log(cartState);
+  console.log(getProductId);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAProduct(getProductId));
+    dispatch(getUserCart());
+  }, []);
+
+  useEffect(() => {
+    for (let index = 0; index < cartState?.length; index++) {
+      if (getProductId === cartState[index]?.productId?._id) {
+        setAlreadyAdded(true);
+      }
+    }
+  }, []);
+  console.log(setAlreadyAdded === true);
 
   const uploadCart = () => {
     dispatch(
@@ -33,12 +51,8 @@ const SingleProduct = () => {
         price: productState?.price,
       })
     );
+    navigate('/cart');
   };
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAProduct(getProductId));
-  }, [dispatch, getProductId]);
 
   const [orderedProduct] = useState(true);
   const copyToClipboard = (text) => {
@@ -145,28 +159,38 @@ const SingleProduct = () => {
                     );
                   })}
                 <div className="d-flex gap-30  flex-row mt-2 mb-3">
-                  <h3 className="product-heading mt-2">Miqdar:</h3>
-                  <div className="">
-                    <input
-                      type="number"
-                      name=""
-                      min={1}
-                      max={10}
-                      className="form-control"
-                      id=""
-                      onChange={(e) => setQuantity(e.target.value)}
-                      value={quantity}
-                    />
-                  </div>
-                  <div className="d-flex align-items-center gap-30">
+                  {alreadyAdded === false && (
+                    <>
+                      <h3 className="product-heading mt-2">Miqdar:</h3>
+                      <div className="">
+                        <input
+                          type="number"
+                          name=""
+                          min={1}
+                          max={10}
+                          className="form-control"
+                          id=""
+                          onChange={(e) => setQuantity(e.target.value)}
+                          value={quantity}
+                        />
+                      </div>
+                    </>
+                  )}
+                  <div
+                    className={
+                      alreadyAdded
+                        ? 'ms-0'
+                        : 'ms-5' + 'd-flex align-items-center gap-30'
+                    }
+                  >
                     <button
                       onClick={() => {
-                        uploadCart();
+                        alreadyAdded ? navigate('/cart') : uploadCart();
                       }}
                       className=""
                       type="submit"
                     >
-                      Səbətə əlavə et
+                      {alreadyAdded ? 'Sebete get' : ' Səbətə əlavə et'}
                     </button>
                     <button className="">Buy it now</button>
                   </div>

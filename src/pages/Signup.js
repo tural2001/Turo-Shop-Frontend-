@@ -36,10 +36,7 @@ const Signup = () => {
     <div className="auth overflow-hidden bg-light py-5">
       <div className="row py-5">
         <div className="col-4 bg-white">
-          <img
-            src="https://api.logo.com/api/v2/images?logo=logo_27bcec54-c41d-4a85-a096-3c43dc1a1c48&format=webp&margins=0&quality=60&width=500&background=transparent&u=1683711688"
-            alt=""
-          />
+          <img src="images/logo.webp" alt="" />
         </div>
         <div className="col-7 bg-white">
           <MDBContainer className="p-3 my-5 d-flex flex-column w-50">

@@ -632,19 +632,85 @@ button:hover .ai-outline-heart {
 /* Contact Page ends here */
 
 /* Services Page */
+.card {
+  text-align: center;
+  min-height: 400px;
+  min-width: 225px;
+  max-height: 400px;
+  max-width: 225px;
+  border: 1px solid black;
+}
+
 .services-wrapper-1 {
   overflow: hidden;
-  background: linear-gradient(to bottom, rgb(2, 42, 58), rgb(1, 8, 13));
+  padding: 0px !important;
+  margin: 10px !important;
+  /* background: linear-gradient(to bottom, rgb(2, 42, 58), rgb(1, 8, 13)); */
+}
+.services-wrapper-1 .card-text,
+.btn {
+  display: none;
+}
+.services-wrapper-1 .card {
+  position: relative;
+}
+.services-wrapper-1 ul {
+  padding: 0px !important;
 }
 
 .services-wrapper-1 p {
+  color: rgb(182, 182, 184);
+  font-size: 1rem;
+}
+
+.services-wrapper-1 .card .card-img {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.services-wrapper-1 .card .card-title {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.services-wrapper-1 .card:hover {
+  background-color: #252525 !important;
+  color: white;
+  transition: 0.3s;
+}
+
+.services-wrapper-1 .card:hover .card-img,
+.services-wrapper-1 .card:hover .card-title {
+  position: static;
+  transform: none;
+}
+
+.services-wrapper-1 .card:hover .card-text,
+.services-wrapper-1 .card:hover .link {
+  display: block;
+}
+
+.services-wrapper-1 .card:hover .card-text,
+.services-wrapper-1 .card:hover .link {
+  display: block;
+}
+.services-wrapper-1 .card:hover .link {
+  color: red;
+  border-bottom: 2px solid #5d5c5c;
+  transition: 0.3s;
+}
+
+/* .services-wrapper-1 p {
   transition: 0.5s;
   font-size: 20px;
   color: #fff;
   text-shadow: 0 0 5px #16a1a6;
   margin: 0px !important;
   overflow: hidden;
-}
+} */
 .logo {
   overflow: hidden;
 }
@@ -652,8 +718,8 @@ button:hover .ai-outline-heart {
 .logo b {
   font-family: 'Dancing Script', cursive;
   font-size: 4rem;
-  color: rgb(111, 111, 108);
-  text-shadow: 0 0 5px #222222;
+  color: rgb(159, 78, 217);
+  text-shadow: 0 0 5px #b7aeae;
 }
 .logo b span {
   animation: blink linear infinite 2s;
@@ -667,7 +733,7 @@ button:hover .ai-outline-heart {
     text-shadow: inherit;
   }
   79% {
-    color: #f6f2f2;
+    color: #9f9a9a;
   }
   80% {
     text-shadow: none;
@@ -677,7 +743,7 @@ button:hover .ai-outline-heart {
     text-shadow: inherit;
   }
   82% {
-    color: #ded7d7;
+    color: #242323;
     text-shadow: none;
   }
   83% {
@@ -685,7 +751,7 @@ button:hover .ai-outline-heart {
     text-shadow: inherit;
   }
   92% {
-    color: #dbd7d7;
+    color: #bdb9b9;
     text-shadow: none;
   }
   92.5% {
@@ -1048,14 +1114,15 @@ button:hover .ai-outline-heart {
 }
 .custom-btn {
   background-color: white;
-  border: 1px solid rgb(0, 0, 0);
+  border: 1px solid rgb(193, 189, 189);
   padding: 0.6rem;
   border-radius: 1rem;
 }
 .custom-btn:hover {
-  background-color: #f4e50f;
-  color: rgb(0, 0, 0);
-  border: 1px solid #f4e50f;
+  background-color: #1abdc9;
+  border: 1px solid white;
+
+  color: rgb(255, 255, 255);
   transition: 0.4s;
 }
 /* Button end */

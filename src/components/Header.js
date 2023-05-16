@@ -12,14 +12,15 @@ const Header = () => {
   const [total, setTotal] = useState(null);
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state?.auth?.cartProducts);
-  console.log(total);
+  const authState = useSelector((state) => state?.auth);
+
   useEffect(() => {
     let sum = 0;
     for (let index = 0; index < cartState?.length; index++) {
       sum = sum + Number(cartState[index]?.quantity) * cartState[index]?.price;
       setTotal(sum);
     }
-  });
+  }, []);
 
   const handleIconClick = () => {
     setShowInput(!showInput);
@@ -111,13 +112,19 @@ const Header = () => {
                 </div>
                 <div>
                   <Link
-                    to="/login"
+                    to={authState?.user === null ? '/login' : ''}
                     className="d-flex align-items-center gap-10 text-white"
                   >
                     <FaUser className="fs-4" />
-                    <p className="mb-0">
-                      Giriş <br /> Hesabım
-                    </p>
+                    {authState?.user === null ? (
+                      <p className="mb-0">
+                        Giriş <br /> Hesabım
+                      </p>
+                    ) : (
+                      <p className="mb-0">
+                        Welcome <br /> {authState?.user?.name}
+                      </p>
+                    )}
                   </Link>
                 </div>
                 <div>

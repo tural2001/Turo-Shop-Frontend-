@@ -5,6 +5,14 @@ import Container from '../components/Container';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import axios from 'axios';
+import StripeCheckout from 'react-stripe-checkout';
+import { createAnOrder } from '../features/user/userSlice';
+import { config } from '../utils/axiosConfig';
+
+const MySwal = withReactContent(Swal);
 
 const shippingSchema = yup.object({
   firstname: yup.string().required('First Name is required'),
@@ -21,9 +29,9 @@ const Checkout = () => {
   const dispatch = useDispatch();
   const [totalAmount, setTotalAmount] = useState(null);
   const [shippingInfo, setShinppingInfo] = useState(null);
+  const [cartProductState, setCartProductState] = useState([]);
 
   const cartState = useSelector((state) => state.auth.cartProducts);
-  console.log(cartState);
 
   useEffect(() => {
     let sum = 0;
@@ -32,6 +40,74 @@ const Checkout = () => {
       setTotalAmount(sum);
     }
   }, [cartState]);
+
+  const publishableKey =
+    'pk_test_51N858bJsrPMYNwWIHPiIegIKYQFrVnhoSnR8JHyUADryAXQAVhHFgeasZR6thQi1qDAOUYberuIRiIfSuhHapGIL00FnWjImCc';
+
+  const priceForStripe = cartState?.price * cartState?.quantity * 100;
+  const handleSuccess = () => {
+    MySwal.fire({
+      icon: 'success',
+      title: 'Payment was successful',
+      time: 4000,
+    });
+
+    try {
+      new Promise((resolve) => setTimeout(resolve, 300));
+      dispatch(
+        createAnOrder({
+          totalPrice: totalAmount,
+          totalPriceAfterDiscount: totalAmount,
+          orderItems: cartProductState,
+          shippingInfo,
+        })
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleFailure = () => {
+    MySwal.fire({
+      icon: 'error',
+      title: 'Payment was not successful',
+      time: 4000,
+    });
+  };
+
+  const payNow = async (token) => {
+    try {
+      const response = await axios({
+        url: 'http://localhost:8000/api/stripe/payment',
+        config,
+        totalAmount,
+        method: 'post',
+        data: {
+          amount: totalAmount,
+          token,
+        },
+      });
+      if (response.status === 200) {
+        handleSuccess();
+      }
+    } catch (error) {
+      handleFailure();
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    let items = [];
+    for (let index = 0; index < cartState?.length; index++) {
+      items.push({
+        product: cartState[index].productId,
+        quantity: cartState[index].quantity,
+        price: cartState[index].price,
+      });
+    }
+    setCartProductState(items);
+  }, []);
+  console.log(cartProductState);
 
   const formik = useFormik({
     initialValues: {
@@ -46,9 +122,10 @@ const Checkout = () => {
     },
     validationSchema: shippingSchema,
     onSubmit: async (values) => {
-      alert(JSON.stringify(values));
+      setShinppingInfo(values);
     },
   });
+  console.log(shippingInfo);
 
   return (
     <>
@@ -234,6 +311,16 @@ const Checkout = () => {
                       Alışa davam et
                     </Link>
                     <button type="submit">Sifariş verin</button>
+                    <StripeCheckout
+                      stripeKey={publishableKey}
+                      label="Pay Now"
+                      name="Pay With Credit Card"
+                      billingAddress
+                      shippingAddress
+                      amount={priceForStripe}
+                      description={`Your total is $${totalAmount}`}
+                      token={payNow}
+                    />
                   </div>
                 </div>
               </form>

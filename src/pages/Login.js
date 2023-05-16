@@ -5,11 +5,11 @@ import {
   MDBTabsPane,
   MDBCheckbox,
 } from 'mdb-react-ui-kit';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CustomInput from '../components/CustomInput';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../features/user/userSlice';
 
 const loginSchema = yup.object({
@@ -21,6 +21,8 @@ const loginSchema = yup.object({
 });
 
 const Login = () => {
+  const authState = useSelector((state) => state.auth);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -30,6 +32,9 @@ const Login = () => {
     validationSchema: loginSchema,
     onSubmit: (values) => {
       dispatch(loginUser(values));
+      if (authState?.isSuccess) {
+        navigate('/');
+      }
     },
   });
 

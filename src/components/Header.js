@@ -26,6 +26,11 @@ const Header = () => {
     setShowInput(!showInput);
   };
 
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
+
   return (
     <>
       <header className="header-top-strip">
@@ -112,7 +117,7 @@ const Header = () => {
                 </div>
                 <div>
                   <Link
-                    to={authState?.user === null ? '/login' : ''}
+                    to={authState?.user === null ? '/login' : '/my-profile'}
                     className="d-flex align-items-center gap-10 text-white"
                   >
                     <FaUser className="fs-4" />
@@ -190,8 +195,16 @@ const Header = () => {
                   <div className="d-flex align-items-center gap-15">
                     <NavLink to="/">Əsas</NavLink>
                     <NavLink to="/product">Məhsullar</NavLink>
+                    <NavLink to="/my-orders">Mənim Sifarişim</NavLink>
                     <NavLink to="/services">Xidmətlər</NavLink>
                     <NavLink to="/contact">Əlaqə</NavLink>
+                    <button
+                      onClick={handleLogout}
+                      className="border border-0 bg-transparent text-white text-uppercase"
+                      type="button"
+                    >
+                      Çıxış
+                    </button>
                   </div>
                 </div>
               </div>

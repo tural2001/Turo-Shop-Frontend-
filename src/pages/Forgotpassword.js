@@ -5,9 +5,27 @@ import CustomInput from '../components/CustomInput';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../features/user/userSlice';
+import { forgotPasswordToken } from '../features/user/userSlice';
+
+const forgotpasswordSchema = yup.object({
+  email: yup
+    .string()
+    .email(' Email should be Valid')
+    .required('Email is Required'),
+});
 
 const Forgotpassword = () => {
+  const dispatch = useDispatch();
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+    },
+    validationSchema: forgotpasswordSchema,
+    onSubmit: (values) => {
+      dispatch(forgotPasswordToken(values));
+    },
+  });
   return (
     <div className="auth overflow-hidden bg-light py-5">
       <div className="row py-5">
@@ -26,7 +44,7 @@ const Forgotpassword = () => {
                 </h6>
                 <form
                   action=""
-                  // onSubmit={formik.handleSubmit}
+                  onSubmit={formik.handleSubmit}
                   className="d-flex flex-column gap-15"
                 >
                   <CustomInput
@@ -34,22 +52,20 @@ const Forgotpassword = () => {
                     name="email"
                     placeholder="Email"
                     className="mt-3"
-                    //   value={formik.values.email}
-                    //   onChange={formik.handleChange('email')}
-                    //   onBluer={formik.handleBlur('email')}
+                    value={formik.values.email}
+                    onChange={formik.handleChange('email')}
+                    onBluer={formik.handleBlur('email')}
                   />
-                  {/* <div className="error text-danger">
-                  {formik.touched.email && formik.errors.email}
-                </div> */}
+                  <div className="error text-danger">
+                    {formik.touched.email && formik.errors.email}
+                  </div>
                   <div>
                     <div className="mt-3 d-flex justify-content-center align-items-center gap-10">
                       <button
                         type="submit"
                         className="mb-4 w-100 bg-primary border"
                       >
-                        <Link to={'/reset-password'} className="text-white">
-                          Reset Password
-                        </Link>
+                        Reset Password
                       </button>
                     </div>
                   </div>

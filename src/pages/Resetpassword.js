@@ -1,13 +1,34 @@
 import React from 'react';
 import { MDBContainer, MDBTabsContent, MDBTabsPane } from 'mdb-react-ui-kit';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import CustomInput from '../components/CustomInput';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../features/user/userSlice';
+import { resetPassword } from '../features/user/userSlice';
 
-const Forgotpassword = () => {
+const forgotpasswordSchema = yup.object({
+  password: yup.string().required('Password is Required'),
+  confirmPassword: yup.string().required('Confirm password is Required'),
+});
+
+const Resetpassword = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  const getToken = location.pathname.split('/')[2];
+  const formik = useFormik({
+    initialValues: {
+      password: '',
+      confirmPassword: '',
+    },
+    validationSchema: forgotpasswordSchema,
+    onSubmit: (values) => {
+      dispatch(resetPassword({ token: getToken, password: values.password }));
+      navigate('/login');
+    },
+  });
   return (
     <div className="auth overflow-hidden bg-light py-5">
       <div className="row py-5">
@@ -23,7 +44,7 @@ const Forgotpassword = () => {
                 </h4>
                 <form
                   action=""
-                  // onSubmit={formik.handleSubmit}
+                  onSubmit={formik.handleSubmit}
                   className="d-flex flex-column gap-15 mt-5"
                 >
                   <CustomInput
@@ -31,22 +52,32 @@ const Forgotpassword = () => {
                     name="password"
                     placeholder="Password"
                     className="mt-3"
+                    value={formik.values.password}
+                    onChange={formik.handleChange('password')}
+                    onBluer={formik.handleBlur('password')}
                   />
+                  <div className="error text-danger">
+                    {formik.touched.password && formik.errors.password}
+                  </div>
                   <CustomInput
                     type="password"
                     name="confirmPassword"
                     placeholder="Confirm Password"
                     className="mt-3"
-                    //   value={formik.values.email}
-                    //   onChange={formik.handleChange('email')}
-                    //   onBluer={formik.handleBlur('email')}
+                    value={formik.values.confirmPassword}
+                    onChange={formik.handleChange('confirmPassword')}
+                    onBluer={formik.handleBlur('emaconfirmPasswordil')}
                   />
-                  {/* <div className="error text-danger">
-                  {formik.touched.email && formik.errors.email}
-                </div> */}
+                  <div className="error text-danger">
+                    {formik.touched.confirmPassword &&
+                      formik.errors.confirmPassword}
+                  </div>
                   <div>
                     <div className="mt-3 d-flex justify-content-center align-items-center gap-10">
-                      <button className="mb-4 w-100 bg-primary text-white border">
+                      <button
+                        type="submit"
+                        className="mb-4 w-100 bg-primary text-white border"
+                      >
                         Ok
                       </button>
                     </div>
@@ -66,4 +97,4 @@ const Forgotpassword = () => {
   );
 };
 
-export default Forgotpassword;
+export default Resetpassword;

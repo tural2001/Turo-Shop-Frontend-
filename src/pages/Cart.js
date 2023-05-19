@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Meta from '../components/Meta';
-import disk from '../images/disk.webp';
 import { AiFillDelete } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import Container from '../components/Container';

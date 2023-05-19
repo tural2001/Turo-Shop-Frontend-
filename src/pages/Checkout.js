@@ -83,7 +83,7 @@ const Checkout = () => {
         totalAmount,
         method: 'post',
         data: {
-          amount: totalAmount,
+          amount: totalAmount ? totalAmount + (totalAmount > 200 ? 5 : 2) : 0,
           token,
         },
       });
@@ -382,7 +382,7 @@ const Checkout = () => {
             <div className="d-flex justify-content-between align-items-center py-4">
               <p className="total">Toplam Məbləğ</p>
               <p className="total-price">
-                {totalAmount ? totalAmount + (totalAmount > 200 ? 5 : 2) : 0}{' '}
+                {totalAmount ? totalAmount + (totalAmount > 200 ? 5 : 2) : 0}
                 azn
               </p>
             </div>

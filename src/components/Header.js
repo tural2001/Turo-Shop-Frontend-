@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
 import { GoGitCompare } from 'react-icons/go';
 import { SlLike } from 'react-icons/sl';
 import { FaUser } from 'react-icons/fa';
 import { SlBasket } from 'react-icons/sl';
 import { useDispatch, useSelector } from 'react-redux';
+import { Typeahead } from 'react-bootstrap-typeahead'; // ES2015
+import 'react-bootstrap-typeahead/css/Typeahead.css';
+import { getAProduct } from '../features/products/productSlice';
 
 const Header = () => {
   const [showInput, setShowInput] = useState(false);
   const [total, setTotal] = useState(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cartState = useSelector((state) => state?.auth?.cartProducts);
   const authState = useSelector((state) => state?.auth);
+  const productState = useSelector((state) => state?.product?.product);
+  const [productOpt, setProductOpt] = useState([]);
+  const [paginate, setPaginate] = useState(true);
 
   useEffect(() => {
     let sum = 0;
@@ -20,7 +27,16 @@ const Header = () => {
       sum = sum + Number(cartState[index]?.quantity) * cartState[index]?.price;
       setTotal(sum);
     }
-  }, []);
+  }, [cartState]);
+
+  useEffect(() => {
+    let data = [];
+    for (let index = 0; index < productState?.length; index++) {
+      const element = productState[index];
+      data.push({ id: index, prod: element?._id, name: element?.title });
+    }
+    setProductOpt(data);
+  }, [productState]);
 
   const handleIconClick = () => {
     setShowInput(!showInput);
@@ -64,7 +80,7 @@ const Header = () => {
                 </Link>
               </h2>
             </div>
-            <div className="col-3">
+            <div className="col-4">
               <div
                 className="input-group"
                 style={{ display: 'flex', alignItems: 'center' }}
@@ -77,12 +93,18 @@ const Header = () => {
                   <BsSearch className="fs-6" />
                 </span>
                 {showInput && (
-                  <input
-                    type="text"
-                    className="form-control form-control-sm"
-                    placeholder="Məhsulu burada axtarın..."
-                    aria-label="Məhsulu burada axtarın..."
-                    aria-describedby="basic-addon2"
+                  <Typeahead
+                    id="pagination-example"
+                    onPaginate={() => console.log('Results paginated')}
+                    onChange={(selected) => {
+                      navigate(`/product/${selected[0]?.prod}`);
+                      dispatch(getAProduct(selected[0]?.prod));
+                    }}
+                    minLength={2}
+                    options={productOpt}
+                    paginate={paginate}
+                    labelKey={'name'}
+                    placeholder="Search for Products here..."
                   />
                 )}
               </div>

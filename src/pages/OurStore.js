@@ -5,17 +5,58 @@ import Meta from '../components/Meta';
 import ProductCard from '../components/ProductCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProducts } from '../features/products/productSlice';
+import prodcompare from '../images/prodcompare.svg';
+import view from '../images/view.svg';
+import addcart from '../images/add-cart.svg';
+import { addToWishlist } from '../features/products/productSlice';
+import { AiOutlineHeart } from 'react-icons/ai';
+import { FcLike } from 'react-icons/fc';
+import { useNavigate } from 'react-router-dom';
 
 const OurStore = () => {
   const [grid, setGrid] = useState(4);
+  const navigate = useNavigate();
   const productState = useSelector((state) => state.product?.product);
+  const [brands, setBrands] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [tags, setTags] = useState([]);
+
+  const [brand, setBrand] = useState(null);
+  const [category, setCategory] = useState(null);
+  const [tag, setTag] = useState(null);
+  const [minPrice, setMinPrice] = useState(null);
+  const [maxPrice, setMaxPrice] = useState(null);
+  const [sort, setSort] = useState(null);
+
+  useEffect(() => {
+    let newBrands = [];
+    let category = [];
+    let newTags = [];
+    for (let index = 0; index < productState?.length; index++) {
+      const element = productState[index];
+      newBrands.push(element.brand);
+      category.push(element.category);
+      newTags.push(element.tags);
+    }
+    setBrands(newBrands);
+    setCategories(category);
+    setTags(newTags);
+  }, [productState]);
+
   const dispatch = useDispatch();
+
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [sort, tag, brand, category, minPrice, maxPrice]);
+
+  const addToWish = (id) => {
+    dispatch(addToWishlist(id));
+  };
 
   const getProducts = () => {
-    dispatch(getAllProducts());
+    dispatch(
+      getAllProducts({ tag, sort, brand, category, minPrice, maxPrice })
+    );
   };
 
   return (
@@ -28,10 +69,14 @@ const OurStore = () => {
               <h3 className="filter-title">Kateqorilər</h3>
               <div>
                 <ul className="ps-0">
-                  <li>Yağ</li>
-                  <li>Təkər</li>
-                  <li>Disk</li>
-                  <li>Qatqı</li>
+                  {categories &&
+                    [...new Set(categories)].map((item, index) => {
+                      return (
+                        <li key={index} onClick={() => setCategory(item)}>
+                          {item}
+                        </li>
+                      );
+                    })}
                 </ul>
               </div>
             </div>
@@ -67,19 +112,21 @@ const OurStore = () => {
                 <div className="d-flex aling-items-center gap-10">
                   <div className="form-floating mb-3">
                     <input
-                      type="email"
+                      type="number"
                       className="form-control"
                       id="floatingInput"
                       placeholder="Min"
+                      onChange={(e) => setMinPrice(e.target.value)}
                     />
                     <label htmlFor="floatingInput">Min</label>
                   </div>
                   <div className="form-floating mb-3">
                     <input
-                      type="email"
+                      type="number"
                       className="form-control"
                       id="floatingInput"
                       placeholder="Max"
+                      onChange={(e) => setMaxPrice(e.target.value)}
                     />
                     <label htmlFor="floatingInput1">Max</label>
                   </div>
@@ -126,70 +173,101 @@ const OurStore = () => {
               <h3 className="filter-title">Məhsul etiketləri</h3>
               <div>
                 <div className="product-tags d-flex flex-wrap align-items-center gap-10">
-                  <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                    Yağ
-                  </span>
-                  <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                    Təkər
-                  </span>
-                  <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                    Disk
-                  </span>
-                  <span className="badge bg-light text-secondary rounded-3 py-2 px-3">
-                    Qatqı
-                  </span>
+                  {tags &&
+                    [...new Set(tags)].map((item, index) => {
+                      return (
+                        <span
+                          key={index}
+                          className="text-capitalize badge bg-light text-secondary rounded-3 py-2 px-3"
+                          onClick={() => setTag(item)}
+                        >
+                          {item}
+                        </span>
+                      );
+                    })}
+                </div>
+              </div>
+            </div>
+            <div className="filter-card mb-3">
+              <h3 className="filter-title">Məhsul brendləri</h3>
+              <div>
+                <div className="product-tags d-flex flex-wrap align-items-center gap-10">
+                  {brands &&
+                    [...new Set(brands)].map((item, index) => {
+                      return (
+                        <span
+                          key={index}
+                          className="text-capitalize badge bg-light text-secondary rounded-3 py-2 px-3"
+                          onClick={() => setBrand(item)}
+                        >
+                          {item}
+                        </span>
+                      );
+                    })}
                 </div>
               </div>
             </div>
             <div className="filter-card mb-3">
               <h3 className="filter-title">Önə çıxan məhsullar</h3>
               <div>
-                <div className="random-products mb-3 d-flex">
-                  <div className="w-50">
-                    <img
-                      src="images/oil.jpeg"
-                      className="img-fluid"
-                      alt="oil"
-                    />
-                  </div>
-                  <div className="w-50">
-                    <h5>
-                      Castrol 03124 Edge 0W-20 Advanced Full Sintetik Motor
-                      Yağı, 5 Quart
-                    </h5>
-                    <ReactStars
-                      count={5}
-                      size={24}
-                      value={4}
-                      edit={false}
-                      activeColor="#ffd700"
-                    />
-                    <b>200 azn</b>
-                  </div>
-                </div>
-                <div className="random-products  d-flex">
-                  <div className="w-50">
-                    <img
-                      src="images/oil.jpeg"
-                      className="img-fluid"
-                      alt="oil"
-                    />
-                  </div>
-                  <div className="w-50">
-                    <h5>
-                      Castrol 03124 Edge 0W-20 Advanced Full Sintetik Motor
-                      Yağı, 5 Quart
-                    </h5>
-                    <ReactStars
-                      count={5}
-                      size={24}
-                      value={4}
-                      edit={false}
-                      activeColor="#ffd700"
-                    />
-                    <b>200 azn</b>
-                  </div>
-                </div>
+                {productState &&
+                  productState
+                    ?.filter((item) => item?.tags === 'popular')
+                    .slice(0, 2)
+                    .map((item, index) => (
+                      <div key={index} className={'col-3'}>
+                        <div className="product-card position-relative">
+                          <div className="wishlist-icon position-absolute">
+                            <button
+                              className="border-0 bg-transparent"
+                              onClick={(e) => {
+                                addToWish(item?._id);
+                              }}
+                            >
+                              <AiOutlineHeart className="fs-4 ai-outline-heart" />
+                              <FcLike className="fs-4 fc-like" />
+                            </button>
+                          </div>
+                          <div className="product-image">
+                            <img
+                              src={item?.images[0]?.url}
+                              className="img-fluid"
+                              alt="product"
+                            />
+                            <img
+                              src={item?.images[0]?.url}
+                              className="img-fluid"
+                              alt="product"
+                            />
+                          </div>
+                          <div className="product-details">
+                            <h6 className="brand">{item?.brand}</h6>
+                            <h5 className="product-title">{item?.title}</h5>
+
+                            <p className="price">{item?.price} Azn</p>
+                          </div>
+                          <div className="action-bar position-absolute">
+                            <div className="d-flex flex-column gap-15">
+                              <button className="border-0 bg-transparent">
+                                <img src={prodcompare} alt="compare" />
+                              </button>
+                              <button className="border-0 bg-transparent">
+                                <img
+                                  onClick={() =>
+                                    navigate('/product/' + item?._id)
+                                  }
+                                  src={view}
+                                  alt="view"
+                                />
+                              </button>
+                              <button className="border-0 bg-transparent">
+                                <img src={addcart} alt="addcart" />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
               </div>
             </div>
           </div>
@@ -200,21 +278,21 @@ const OurStore = () => {
                   <p className="mb-0 d-block" style={{ width: '100px' }}>
                     Sort By:
                   </p>
-                  <select name="" className="form-control form-select" id="">
-                    <option value="manual">Normal</option>
-                    <option value="best-selling">Çox satan</option>
-                    <option value="title-ascending">A-Z</option>
-                    <option value="title-descending">Z-A</option>
-                    <option value="price-ascending">
-                      Qiymət, azdan çoxa doğru
-                    </option>
-                    <option value="price-descending">
-                      Qiymət, çoxdan aza doğru
-                    </option>
-                    <option value="created-ascending">
+                  <select
+                    name=""
+                    className="form-control form-select"
+                    defaultValue={'manula'}
+                    id=""
+                    onChange={(e) => setSort(e.target.value)}
+                  >
+                    <option value="title">A-Z</option>
+                    <option value="-title">Z-A</option>
+                    <option value="price">Qiymət, azdan çoxa doğru</option>
+                    <option value="-price">Qiymət, çoxdan aza doğru</option>
+                    <option value="createdAt">
                       Tarix, köhnədən təzəyə doğru
                     </option>
-                    <option value="created-descending">
+                    <option value="-createdAt">
                       Tarix, təzədən köhnəyə doğru
                     </option>
                   </select>

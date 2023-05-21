@@ -17,7 +17,7 @@ const Orders = () => {
     <Container class1="cart-wrapper home-wrapper-2 py-5">
       <div className="row">
         <div className="col-12">
-          <div className="row">
+          <div className="row px-3">
             <div className="col-3">
               <h5>Order Id</h5>
             </div>
@@ -31,11 +31,17 @@ const Orders = () => {
               <h5>Status</h5>
             </div>
           </div>
-          <div className="col-12 mt-3">
+          <div className="col-12 px-3 mt-3">
             {orderState &&
               orderState.map((item, index) => {
                 return (
-                  <div className="row" key={index}>
+                  <div
+                    style={{
+                      backgroundColor: '#f3d00b',
+                      borderRadius: '10px',
+                    }}
+                    className="row pt-3 mt-3"
+                  >
                     <div className="col-3">
                       <p>{item?._id}</p>
                     </div>
@@ -48,8 +54,13 @@ const Orders = () => {
                     <div className="col-3">
                       <p>{item?.orderStatus}</p>
                     </div>
-                    <div className="col-12 bg-light">
-                      <div className="row">
+                    <div className="col-12 text-white  bg-light">
+                      <div
+                        className="row pt-3"
+                        style={{
+                          backgroundColor: '#232f3e',
+                        }}
+                      >
                         <div className="col-3">
                           <h5>Product Name</h5>
                         </div>
@@ -65,12 +76,16 @@ const Orders = () => {
                         <div className="col-12">
                           {item?.orderItems?.map((i, index) => {
                             return (
-                              <div className="row">
+                              <div
+                                style={{ backgroundColor: 'febd69' }}
+                                className="row pt-3 my-3"
+                                key={index}
+                              >
                                 <div className="col-3">
                                   <p>{i?.product?.title}</p>
                                 </div>
                                 <div className="col-3">
-                                  <p>{i?.product?.quantity}</p>
+                                  <p>{i?.quantity}</p>
                                 </div>
                                 <div className="col-3">
                                   <p>{i?.product?.price}</p>

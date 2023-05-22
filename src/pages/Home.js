@@ -73,7 +73,8 @@ const Home = () => {
               </h1>
               <Link
                 to={'/signup'}
-                className="btn btn-light p-3 mt-5 home-btn  btn-outline-warning"
+                className="home-button  p-3 mt-5   btn-outline-warning"
+                type="submit"
               >
                 Qeydiyyat
               </Link>

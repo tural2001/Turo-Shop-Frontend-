@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ReactStars from 'react-rating-stars-component';
 import Container from '../components/Container';
 import Meta from '../components/Meta';
 import ProductCard from '../components/ProductCard';
@@ -208,14 +207,14 @@ const OurStore = () => {
               </div>
             </div>
             <div className="filter-card mb-3">
-              <h3 className="filter-title">Önə çıxan məhsullar</h3>
-              <div>
+              <h3 className="filter-title ">Önə çıxan məhsullar</h3>
+              <div className="special">
                 {productState &&
                   productState
                     ?.filter((item) => item?.tags === 'popular')
                     .slice(0, 2)
                     .map((item, index) => (
-                      <div key={index} className={'col-3'}>
+                      <div key={index} style={{ borderBottom: '1px solid' }}>
                         <div className="product-card position-relative">
                           <div className="wishlist-icon position-absolute">
                             <button

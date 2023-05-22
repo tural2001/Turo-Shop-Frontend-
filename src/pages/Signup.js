@@ -102,7 +102,10 @@ const Signup = () => {
                   </div>
                 </form>
                 <p className="text-center text-dark d-flex gap-10">
-                  Already have an account? <Link to="/login">Login </Link>
+                  Already have an account?{' '}
+                  <Link type="submit" to="/login">
+                    Login{' '}
+                  </Link>
                 </p>{' '}
               </MDBTabsPane>
             </MDBTabsContent>

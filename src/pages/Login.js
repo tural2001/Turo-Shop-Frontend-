@@ -11,6 +11,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../features/user/userSlice';
+import { useEffect } from 'react';
 
 const loginSchema = yup.object({
   email: yup
@@ -32,11 +33,14 @@ const Login = () => {
     validationSchema: loginSchema,
     onSubmit: (values) => {
       dispatch(loginUser(values));
-      if (authState?.isSuccess) {
-        navigate('/');
-      }
     },
   });
+
+  useEffect(() => {
+    if (authState.isSuccess) {
+      navigate('/');
+    }
+  }, [authState.isSuccess, navigate]);
 
   return (
     <div className="auth overflow-hidden bg-light py-5">

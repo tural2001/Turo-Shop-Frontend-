@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
-import { GoGitCompare } from 'react-icons/go';
 import { SlLike } from 'react-icons/sl';
 import { FaUser } from 'react-icons/fa';
 import { SlBasket } from 'react-icons/sl';
@@ -9,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Typeahead } from 'react-bootstrap-typeahead'; // ES2015
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { getAProduct } from '../features/products/productSlice';
+import { FiLogOut } from 'react-icons/fi';
 
 const Header = () => {
   const [showInput, setShowInput] = useState(false);
@@ -110,21 +110,7 @@ const Header = () => {
               </div>
             </div>
             <div className="col-5">
-              <div className="header-upper-links d-flex align-items-center justify-content-between">
-                <div>
-                  <Link
-                    to="/compare-product"
-                    className="d-flex align-items-center gap-10 text-white"
-                  >
-                    <GoGitCompare className="fs-4" />
-                    <p className="mb-0">
-                      Məhsul{' '}
-                      <span>
-                        <br /> Müqayisəsi
-                      </span>
-                    </p>
-                  </Link>
-                </div>
+              <div className="header-upper-links d-flex align-items-center justify-content-end gap-20">
                 <div>
                   <Link
                     to="/wishlist"
@@ -169,6 +155,17 @@ const Header = () => {
                     </div>
                   </Link>
                 </div>
+                <button
+                  onClick={handleLogout}
+                  className="border border-0 bg-transparent text-white text-uppercase"
+                  type="button"
+                >
+                  {authState?.user === null ? (
+                    ''
+                  ) : (
+                    <FiLogOut className="fs-4" />
+                  )}
+                </button>
               </div>
             </div>
           </div>
@@ -178,55 +175,14 @@ const Header = () => {
         <div className="container-xxl">
           <div className="row">
             <div className="col-12">
-              <div className="menu-bottom d-flex justify-content-between align-items-center">
-                <div className="drop">
-                  <div className="dropdown">
-                    <button
-                      className="btn btn-secondary dropdown-toggle bg-transparent border-0 gap-15 d-flex align-items-center"
-                      type="button"
-                      id="dropdownMenuButton1"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      <img src="images/menu.svg" alt="" />
-                      <span className="me-5 ">Kateqoriyalar</span>
-                    </button>
-                    <ul
-                      className="dropdown-menu"
-                      aria-labelledby="dropdownMenuButton1"
-                    >
-                      <li>
-                        <Link className="dropdown-item text-white" to="">
-                          Action
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item text-white" to="">
-                          Another action
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item text-white" to="">
-                          Something else here
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+              <div className="menu-bottom d-flex justify-content-center align-items-center">
                 <div className="menu-links">
-                  <div className="d-flex align-items-center gap-15">
+                  <div className="d-flex align-items-center gap-20">
                     <NavLink to="/">Əsas</NavLink>
                     <NavLink to="/product">Məhsullar</NavLink>
                     <NavLink to="/my-orders">Mənim Sifarişim</NavLink>
                     <NavLink to="/services">Xidmətlər</NavLink>
                     <NavLink to="/contact">Əlaqə</NavLink>
-                    <button
-                      onClick={handleLogout}
-                      className="border border-0 bg-transparent text-white text-uppercase"
-                      type="button"
-                    >
-                      Çıxış
-                    </button>
                   </div>
                 </div>
               </div>

@@ -15,7 +15,6 @@ import { addProdToCart, getUserCart } from '../features/user/userSlice';
 import { toast } from 'react-toastify';
 
 const SingleProduct = () => {
-  const [color, setColor] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [alreadyAdded, setAlreadyAdded] = useState(false);
   const location = useLocation();
@@ -24,6 +23,7 @@ const SingleProduct = () => {
   const productState = useSelector((state) => state?.product?.singleproduct);
   const cartState = useSelector((state) => state?.auth?.cartProducts);
 
+  console.log(productState);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAProduct(getProductId));
@@ -49,7 +49,7 @@ const SingleProduct = () => {
     navigate('/cart');
   };
 
-  const [orderedProduct] = useState(true);
+  // const [orderedProduct] = useState(true);
   const copyToClipboard = (text) => {
     console.log('text', text);
     var textField = document.createElement('textarea');
@@ -77,7 +77,7 @@ const SingleProduct = () => {
       );
       setTimeout(() => {
         dispatch(getAProduct(getProductId));
-      }, 100);
+      }, 200);
     }
     return false;
   };
@@ -149,10 +149,6 @@ const SingleProduct = () => {
                   <p className="product-data">{productState?.tags}</p>
                 </div>
                 <div className="d-flex gap-10 align-items-center my-2">
-                  <h3 className="product-heading">Reng:</h3>
-                  <Color colorData={productState?.color} />
-                </div>
-                <div className="d-flex gap-10 align-items-center my-2">
                   <h3 className="product-heading">Mövcud:</h3>
                   <p className="product-data">
                     {productState?.quantity !== undefined
@@ -205,12 +201,12 @@ const SingleProduct = () => {
                       onClick={() => {
                         alreadyAdded ? navigate('/cart') : uploadCart();
                       }}
-                      className=""
+                      className="mx-3 p-1"
                       type="submit"
                     >
                       {alreadyAdded ? 'Sebete get' : ' Səbətə əlavə et'}
                     </button>
-                    <button className="">Buy it now</button>
+                    <button className="p-1">Buy it now</button>
                   </div>
                 </div>
                 <div className="d-flex align-items-center gap-15">
@@ -272,7 +268,7 @@ const SingleProduct = () => {
           <div className="col-12">
             <h3>Reviews</h3>
             <div className="review-inner-wrapper">
-              <div className="review-head d-flex justify-content-between align-items-end">
+              {/* <div className="review-head d-flex justify-content-between align-items-end">
                 <div>
                   <h4 className="mb-2">Customer reviews</h4>
                   <div className="d-flex align-items-center gap-10">
@@ -285,15 +281,15 @@ const SingleProduct = () => {
                     />
                     <p className="mb-0">Based on 2 reviews</p>
                   </div>
-                </div>
+                </div>{' '}
                 <div>
                   {orderedProduct && (
                     <a className="text-dark text-decoration-underline" href="/">
                       Write a review
                     </a>
                   )}
-                </div>
-              </div>
+                </div> 
+              </div> */}
               <div className="review-form py-4">
                 <h4>Write review</h4>
                 <div>
@@ -323,9 +319,9 @@ const SingleProduct = () => {
                 </div>
                 <div className="d-flex justify-content-end">
                   <button
-                    className="button border-0"
+                    className="button btn-success border-0"
                     onClick={addRatingToProduct}
-                    type="button"
+                    type="submit"
                   >
                     Submit
                   </button>
@@ -336,7 +332,7 @@ const SingleProduct = () => {
                   productState.ratings?.map((item, index) => {
                     return (
                       <div key={index} className="review">
-                        <h6 className="mb-0">Tural</h6>
+                        <h6 className="my-2">User</h6>
                         <div className="d-flex gap-10 align-items-center">
                           <ReactStars
                             count={5}
@@ -355,34 +351,6 @@ const SingleProduct = () => {
           </div>
         </div>
       </Container>
-      {/* <Container class1="popular-wrapper py-5 home-wrapper-2">
-        <div className="row">
-          <div className="col-12">
-            <h3 className="section-heading">Our popula product</h3>
-          </div>
-        </div>
-        <div className="row">
-          {productState &&
-            productState.map((item, index) => {
-              if (item.tags === 'special') {
-                return (
-                  <SpecialProduct
-                    key={index}
-                    id={item?._id}
-                    item={item?.title}
-                    brand={item?.brand}
-                    price={item?.price}
-                    quantity={item?.quantity}
-                    totalrating={item?.totalrating.toString()}
-                    sold={item?.sold}
-                    images={item?.images[0]?.url}
-                  />
-                );
-              }
-              return null;
-            })}
-        </div>
-      </Container> */}
     </>
   );
 };

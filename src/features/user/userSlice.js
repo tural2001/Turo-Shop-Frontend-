@@ -261,7 +261,7 @@ export const authSlice = createSlice({
         state.isSuccess = false;
         state.message = action.error;
         if (state.isError) {
-          toast.success('Something Went Wrong!');
+          toast.error('Something Went Wrong!');
         }
       })
       .addCase(updateCartProduct.pending, (state) => {

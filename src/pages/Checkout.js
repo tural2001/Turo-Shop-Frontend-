@@ -107,7 +107,6 @@ const Checkout = () => {
     }
     setCartProductState(items);
   }, []);
-  console.log(cartProductState);
 
   const formik = useFormik({
     initialValues: {
@@ -125,7 +124,6 @@ const Checkout = () => {
       setShinppingInfo(values);
     },
   });
-  console.log(shippingInfo);
 
   return (
     <>
@@ -307,19 +305,20 @@ const Checkout = () => {
                       <BiArrowBack />
                       Səbətə geri dön
                     </Link>
-                    <Link to={'/cart'} type="submit" className="button">
-                      Alışa davam et
-                    </Link>
-                    <button type="submit">Sifariş verin</button>
                     <StripeCheckout
                       stripeKey={publishableKey}
-                      label="Pay Now"
-                      name="Pay With Credit Card"
+                      label="Sifariş et"
+                      name="Kart ilə ödəniş et"
                       billingAddress
                       shippingAddress
                       amount={priceForStripe}
-                      description={`Your total is $${totalAmount}`}
+                      description={`Sizin toplam məbləğ ${
+                        totalAmount
+                          ? totalAmount + (totalAmount > 200 ? 5 : 2)
+                          : ''
+                      }Azn`}
                       token={payNow}
+                      type="submit"
                     />
                   </div>
                 </div>

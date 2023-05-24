@@ -11,13 +11,26 @@ import {
 } from '../features/user/userSlice';
 
 const Cart = () => {
+  const getTokenFromLocalStorage = localStorage.getItem('customer')
+    ? JSON.parse(localStorage.getItem('customer'))
+    : null;
+
+  const config2 = {
+    headers: {
+      Authorization: `Bearer ${
+        getTokenFromLocalStorage !== null ? getTokenFromLocalStorage?.token : ''
+      }`,
+      Accept: 'application/json',
+    },
+  };
+
   const dispatch = useDispatch();
   const [productUpdateDetail, setproductUpdateDetail] = useState(null);
   const [totalAmount, setTotalAmount] = useState(null);
 
   const userCartState = useSelector((state) => state.auth.cartProducts);
   useEffect(() => {
-    dispatch(getUserCart());
+    dispatch(getUserCart(config2));
   }, []);
 
   useEffect(() => {
@@ -29,14 +42,14 @@ const Cart = () => {
         })
       );
       setTimeout(() => {
-        dispatch(getUserCart());
+        dispatch(getUserCart(config2));
       }, 200);
     }
   }, [productUpdateDetail]);
   const deleteACartProduct = (id) => {
-    dispatch(deleteCartProduct(id));
+    dispatch(deleteCartProduct({ id: id, config2: config2 }));
     setTimeout(() => {
-      dispatch(getUserCart());
+      dispatch(getUserCart(config2));
     }, 200);
   };
 
@@ -93,16 +106,12 @@ const Cart = () => {
                       <div>
                         <input
                           type="number"
-                          name=""
-                          id=""
+                          name={'quantity' + item?._id}
+                          id={'cart' + item?._id}
                           className="form-control"
                           min={1}
                           max={10}
-                          value={
-                            productUpdateDetail?.quantity
-                              ? productUpdateDetail?.quantity
-                              : item?.quantity
-                          }
+                          value={item?.quantity}
                           onChange={(e) => {
                             setproductUpdateDetail({
                               cartItemId: item?._id,

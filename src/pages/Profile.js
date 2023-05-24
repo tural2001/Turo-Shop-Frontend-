@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,29 +15,42 @@ const profileSchema = yup.object({
 });
 
 const Profile = () => {
+  const getTokenFromLocalStorage = localStorage.getItem('customer')
+    ? JSON.parse(localStorage.getItem('customer'))
+    : null;
+
+  const config2 = {
+    headers: {
+      Authorization: `Bearer ${
+        getTokenFromLocalStorage !== null ? getTokenFromLocalStorage?.token : ''
+      }`,
+      Accept: 'application/json',
+    },
+  };
   const dispatch = useDispatch();
   const userState = useSelector((state) => state?.auth?.user);
   const [edit, setEdit] = useState(true);
-
+  const updateState = useSelector(
+    (state) => state?.auth?.updatedProfile?.updateaUser
+  );
+  console.log(updateState);
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
-      name: userState?.name,
-      email: userState?.email,
-      mobile: userState?.mobile,
+      name: userState?.name || updateState?.name,
+      email: userState?.email || updateState?.email,
+      mobile: userState?.mobile || updateState?.mobile,
     },
     validationSchema: profileSchema,
     onSubmit: (values) => {
-      dispatch(updateProfile(values));
-      setTimeout(() => {
-        localStorage.setItem(
-          'customer',
-          JSON.stringify({
-            ...JSON.parse(localStorage.getItem('customer')),
-            ...values,
-          })
-        );
-      }, 100);
+      dispatch(updateProfile({ data: values, config2: config2 }));
+      // localStorage.setItem(
+      //   'customer',
+      //   JSON.stringify({
+      //     ...JSON.parse(localStorage.getItem('customer')),
+      //     ...values,
+      //   })
+      // );
 
       setEdit(true);
     },

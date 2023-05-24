@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MDBContainer, MDBTabsContent, MDBTabsPane } from 'mdb-react-ui-kit';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CustomInput from '../components/CustomInput';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../features/user/userSlice';
 
 const signUpSchema = yup.object({
@@ -18,6 +18,8 @@ const signUpSchema = yup.object({
 });
 
 const Signup = () => {
+  const authState = useSelector((state) => state.auth);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -31,6 +33,12 @@ const Signup = () => {
       dispatch(registerUser(values));
     },
   });
+
+  useEffect(() => {
+    if (authState.createdUser !== null && authState.isError !== false) {
+      navigate('/login');
+    }
+  }, [authState.createdUser, authState.isError, navigate]);
 
   return (
     <div className="auth overflow-hidden bg-light py-5">

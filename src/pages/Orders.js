@@ -43,6 +43,7 @@ const Orders = () => {
                         backgroundColor: '#f3d00b',
                         borderRadius: '10px',
                       }}
+                      key={index}
                       className="row pt-3 mt-3"
                     >
                       <div className="col-3">

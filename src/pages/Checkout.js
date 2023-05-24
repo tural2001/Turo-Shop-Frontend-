@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
 import Container from '../components/Container';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,7 +9,12 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
-import { createAnOrder } from '../features/user/userSlice';
+import {
+  createAnOrder,
+  deleteUserCart,
+  getUserCart,
+  resetState,
+} from '../features/user/userSlice';
 import { config } from '../utils/axiosConfig';
 
 const MySwal = withReactContent(Swal);
@@ -26,12 +31,26 @@ const shippingSchema = yup.object({
 });
 
 const Checkout = () => {
+  const getTokenFromLocalStorage = localStorage.getItem('customer')
+    ? JSON.parse(localStorage.getItem('customer'))
+    : null;
+
+  const config2 = {
+    headers: {
+      Authorization: `Bearer ${
+        getTokenFromLocalStorage !== null ? getTokenFromLocalStorage?.token : ''
+      }`,
+      Accept: 'application/json',
+    },
+  };
   const dispatch = useDispatch();
   const [totalAmount, setTotalAmount] = useState(null);
-  const [shippingInfo, setShinppingInfo] = useState(null);
+  const [shippingInfo, setShippingInfo] = useState(null);
   const [cartProductState, setCartProductState] = useState([]);
+  const navigate = useNavigate();
 
-  const cartState = useSelector((state) => state.auth.cartProducts);
+  const cartState = useSelector((state) => state?.auth?.cartProducts);
+  const authState = useSelector((state) => state?.auth?.cartProducts);
 
   useEffect(() => {
     let sum = 0;
@@ -40,6 +59,10 @@ const Checkout = () => {
       setTotalAmount(sum);
     }
   }, [cartState]);
+
+  useEffect(() => {
+    dispatch(getUserCart(config2));
+  }, []);
 
   const publishableKey =
     'pk_test_51N858bJsrPMYNwWIHPiIegIKYQFrVnhoSnR8JHyUADryAXQAVhHFgeasZR6thQi1qDAOUYberuIRiIfSuhHapGIL00FnWjImCc';
@@ -59,9 +82,13 @@ const Checkout = () => {
           totalPrice: totalAmount,
           totalPriceAfterDiscount: totalAmount,
           orderItems: cartProductState,
-          shippingInfo,
+          shippingInfo: JSON.parse(localStorage.getItem('shippingInfo')),
         })
       );
+      dispatch(deleteUserCart(config2));
+      localStorage.removeItem('shippingInfo');
+      dispatch(resetState);
+      navigate('/my-orders');
     } catch (error) {
       console.log(error);
     }
@@ -120,8 +147,9 @@ const Checkout = () => {
       pincode: '',
     },
     validationSchema: shippingSchema,
-    onSubmit: async (values) => {
-      setShinppingInfo(values);
+    onSubmit: (values) => {
+      setShippingInfo(values);
+      localStorage.setItem('shippingInfo', JSON.stringify(values));
     },
   });
 
@@ -260,8 +288,8 @@ const Checkout = () => {
                     <option value="" disabled>
                       Seher Seç
                     </option>
-                    <option value="Azerbaycan">Baki</option>
-                    <option value="Turkiye">Sumqayit</option>
+                    <option value="Baki">Baki</option>
+                    <option value="Sumqayit">Sumqayit</option>
                   </select>
                   <div className="error text-danger">
                     {formik.touched.city && formik.errors.city}
@@ -318,7 +346,6 @@ const Checkout = () => {
                           : ''
                       }Azn`}
                       token={payNow}
-                      type="submit"
                     />
                   </div>
                 </div>

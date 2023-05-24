@@ -37,10 +37,10 @@ const Login = () => {
   });
 
   useEffect(() => {
-    if (authState.isSuccess) {
+    if (authState.user !== null && authState.isError === false) {
       navigate('/');
     }
-  }, [authState.isSuccess, navigate]);
+  }, [authState.isError, authState.user, navigate]);
 
   return (
     <div className="auth overflow-hidden bg-light py-5">

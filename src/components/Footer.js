@@ -16,26 +16,26 @@ const Footer = () => {
           <div className="row justify-content-between">
             <div className="col-4">
               <div className="footer-top-data d-flex gap-15 align-items-center">
-                <img src="images/map.svg" width="45px" alt="" />
+                <img src="images/map.svg" width="35px" alt="" />
                 <h4 className="mb-0 text-white fw-bolder">
                   Ünvan
-                  <br /> <span className="fw-lighter fs-6">Baku.Azadlıq</span>
+                  <br /> <span className="fw-lighter fs-6">Sumqayıt</span>
                 </h4>
               </div>
             </div>
             <div className="col-4">
               <div className="footer-top-data d-flex gap-15 align-items-center">
-                <img src="images/contact.svg" width="45px" alt="location" />
+                <img src="images/contact.svg" width="35px" alt="location" />
                 <h4 className="mb-0 text-white fw-bolder">
                   Əlaqə
                   <br />{' '}
-                  <span className="fw-lighter fs-6">+994(55)239****</span>
+                  <span className="fw-lighter fs-6">+994(55)2391112</span>
                 </h4>
               </div>
             </div>
             <div className="col-4">
               <div className="footer-top-data d-flex gap-15 align-items-center">
-                <img src="images/mail.svg" width="45px" alt="mail" />
+                <img src="images/mail.svg" width="35px" alt="mail" />
                 <h4 className="mb-0 text-white fw-bolder">
                   Mail <br />
                   <span className="fw-lighter fs-6">
@@ -128,7 +128,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-12">
               <p className="text-center mb-0 text-white">
-                &copy; {new Date().getFullYear()}; Powered by Developer's Tural
+                &copy; {new Date().getFullYear()}
               </p>
             </div>
           </div>

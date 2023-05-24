@@ -60,7 +60,7 @@ const Wishlist = () => {
                       className="description fw-lighter"
                       dangerouslySetInnerHTML={{ __html: item?.description }}
                     ></h6>
-                    <h6 className="price mb-3">{item?.price}</h6>
+                    <h6 className="price mb-3">{item?.price} Azn</h6>
                   </div>
                 </div>
               </div>

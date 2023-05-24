@@ -9,6 +9,7 @@ import { Typeahead } from 'react-bootstrap-typeahead'; // ES2015
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { getAProduct } from '../features/products/productSlice';
 import { FiLogOut } from 'react-icons/fi';
+import { getUserCart } from '../features/user/userSlice';
 
 const Header = () => {
   const [showInput, setShowInput] = useState(false);
@@ -18,8 +19,28 @@ const Header = () => {
   const cartState = useSelector((state) => state?.auth?.cartProducts);
   const authState = useSelector((state) => state?.auth);
   const productState = useSelector((state) => state?.product?.product);
+  const updateState = useSelector(
+    (state) => state?.auth?.updatedProfile?.updateaUser
+  );
   const [productOpt, setProductOpt] = useState([]);
   const [paginate, setPaginate] = useState(true);
+
+  const getTokenFromLocalStorage = localStorage.getItem('customer')
+    ? JSON.parse(localStorage.getItem('customer'))
+    : null;
+
+  const config2 = {
+    headers: {
+      Authorization: `Bearer ${
+        getTokenFromLocalStorage !== null ? getTokenFromLocalStorage?.token : ''
+      }`,
+      Accept: 'application/json',
+    },
+  };
+
+  useEffect(() => {
+    dispatch(getUserCart(config2));
+  }, []);
 
   useEffect(() => {
     let sum = 0;
@@ -53,12 +74,12 @@ const Header = () => {
         <div className="container-xxl">
           <div className="row">
             <div className="col-6">
-              <p className="text-white mb-0">
+              {/* <p className="text-white mb-0">
                 100 AZN-dən yuxarı pulsuz çatdırılma
-              </p>
+              </p> */}
             </div>
             <div className="col-6 d-flex justify-content-end">
-              <a className="text-white" href="tel:+994 8721231">
+              <a className="text-white" href="tel:+994 552391112">
                 Əlaqə: +994 55-239-11-12
               </a>
             </div>
@@ -136,6 +157,7 @@ const Header = () => {
                     ) : (
                       <p className="mb-0">
                         Welcome <br /> {authState?.user?.name}
+                        {updateState?.name}
                       </p>
                     )}
                   </Link>

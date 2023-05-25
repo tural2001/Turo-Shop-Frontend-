@@ -105,7 +105,7 @@ const Checkout = () => {
   const payNow = async (token) => {
     try {
       const response = await axios({
-        url: 'http://localhost:8000/api/stripe/payment',
+        url: 'https://turostore.onrender.com/api/stripe/payment',
         config,
         totalAmount,
         method: 'post',

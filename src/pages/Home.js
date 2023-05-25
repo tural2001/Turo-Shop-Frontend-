@@ -106,28 +106,28 @@ const Home = () => {
           <div className="col-12 pb-3">
             <div className="categories d-flex justify-content-between align-items-center">
               <div className="d-flex gap-30 align-items-center">
-                <div>
+                <div className="category">
                   <h5>Qatqılar</h5>
                   <p>12 ədəd</p>
                 </div>
                 <img src="images/fluid.jpeg" alt="10w40_oil" />
               </div>
               <div className="d-flex gap-30 align-items-center">
-                <div>
+                <div className="category">
                   <h5>Yağlar</h5>
                   <p>25 ədəd</p>
                 </div>
                 <img src="images/oil.jpeg" alt="oil" />
               </div>
               <div className="d-flex gap-30 align-items-center">
-                <div>
+                <div className="category">
                   <h5>Disklər</h5>
                   <p>18 ədəd</p>
                 </div>
                 <img src="images/disk.webp" alt="disk" />
               </div>
               <div className="d-flex gap-30 align-items-center">
-                <div>
+                <div className="category">
                   <h5>Şinlər</h5>
                   <p>9 ədəd</p>
                 </div>

@@ -131,7 +131,7 @@ const OurStore = () => {
                   </div>
                 </div>
               </div>
-              <h5 className="sub-title">Ölçü</h5>
+              {/* <h5 className="sub-title">Ölçü</h5>
               <div>
                 <div className="form-check">
                   <input
@@ -166,7 +166,7 @@ const OurStore = () => {
                     0w20 (8)
                   </label>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="filter-card mb-3">
               <h3 className="filter-title">Məhsul etiketləri</h3>

@@ -185,7 +185,7 @@ const Header = () => {
                   {authState?.user === null ? (
                     ''
                   ) : (
-                    <FiLogOut className="fs-4" />
+                    <FiLogOut className="fs-5" />
                   )}
                 </button>
               </div>

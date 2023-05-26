@@ -148,7 +148,7 @@ const Home = () => {
             productState?.map((item, index) => {
               if (item?.tags === 'popular') {
                 return (
-                  <div key={index} className={'col-3'}>
+                  <div key={index} className="col-3">
                     <div className="product-card position-relative ">
                       <div className="wishlist-icon position-absolute">
                         <button

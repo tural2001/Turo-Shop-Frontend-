@@ -94,7 +94,7 @@ const Contact = () => {
                   <div>
                     <textarea
                       id=""
-                      className="w-100 form-control"
+                      className="w-90 form-control"
                       cols="30"
                       rows="4"
                       name="comment"

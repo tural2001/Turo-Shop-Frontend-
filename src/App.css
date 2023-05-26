@@ -368,6 +368,65 @@ a {
   .wishlist-wrapper .price {
     font-size: 0.6rem !important;
   }
+  .contact-wrapper .col-6 {
+    width: 100%;
+  }
+  .contact-wrapper h3 {
+    font-size: 0.5rem;
+    margin: 0 !important;
+  }
+  .contact-wrapper .contact-inner-wrapper li {
+    gap: 5px !important;
+    margin: 0 !important;
+    padding: 2px;
+    font-size: 0.4rem;
+  }
+  .contact-wrapper .contact-inner-wrapper .fs-4 {
+    font-size: 0.6rem !important;
+  }
+  .contact-wrapper .contact-inner-wrapper a {
+    font-size: 0.4rem;
+  }
+  .contact-wrapper .col-6 .w-100 {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .auth {
+    padding: 0 !important;
+  }
+  .auth .col-4 {
+    width: 100%;
+    height: 50px;
+    margin: 0 !important;
+    padding: 0;
+    border-bottom: 1px solid;
+  }
+  .auth .col-4 img {
+    width: 70px;
+    padding: 0;
+  }
+
+  .auth .col-7 {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    padding: 0;
+  }
+  .auth .col-7 .py-5 {
+    padding: 0;
+    margin-left: 110px;
+  }
+  .auth h4,
+  button {
+    font-size: 0.6rem !important;
+  }
+  .auth .w-50 {
+    margin: 0;
+    padding: 0 !important;
+  }
+  .auth a {
+    font-size: 0.4rem;
+  }
 }
 
 /* Media query for screens between 600px and 900px */
@@ -670,6 +729,29 @@ a {
   }
   .wishlist-wrapper .price {
     font-size: 0.6rem !important;
+  }
+  .contact-wrapper .col-6 {
+    width: 100%;
+  }
+  .contact-wrapper h3 {
+    font-size: 0.7rem;
+    margin: 0 !important;
+  }
+  .contact-wrapper .contact-inner-wrapper li {
+    gap: 5px !important;
+    margin: 0 !important;
+    padding: 2px;
+    font-size: 0.5rem;
+  }
+  .contact-wrapper .contact-inner-wrapper .fs-4 {
+    font-size: 0.7rem !important;
+  }
+  .contact-wrapper .contact-inner-wrapper a {
+    font-size: 0.6rem;
+  }
+  .contact-wrapper .col-6 .w-100 {
+    width: 100% !important;
+    height: 200px !important;
   }
 }
 
